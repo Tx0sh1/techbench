@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechBench — Quality Used & Refurbished Tech, Tested & Verified in South Africa</title>
+<meta name="description" content="TechBench sells quality pre-owned iPhones and tech in South Africa. Every device is tested, graded, and verified before it ships. Free delivery. Built on trust.">
+<style>
+  :root {
+    --ink: #1a1d21;
+    --paper: #f7f7f5;
+    --bench: #e4572e;      /* warm workbench orange — the accent */
+    --bench-dark: #c7441f;
+    --steel: #2e353b;      /* tool steel gray */
+    --steel-light: #5a666e;
+    --line: #e2e0da;
+    --ok: #1e7d46;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* header */
+  header {
+    background: var(--ink);
+    color: #fff;
+    padding: 18px 0;
+    position: sticky; top: 0; z-index: 10;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: var(--bench);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 20px; color: #fff;
+  }
+  .brand h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.3px; }
+  .brand h1 span { color: var(--bench); }
+  .brand small { display: block; font-size: 11px; color: #9aa3ab; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
+  nav { display: flex; gap: 22px; margin-left: auto; align-items: center; }
+  nav a { color: #cfd5da; text-decoration: none; font-size: 14px; font-weight: 500; }
+  nav a:hover { color: #fff; }
+  .cta-btn {
+    background: var(--bench); color: #fff !important;
+    padding: 8px 16px; border-radius: 6px; font-weight: 600;
+  }
+  .cta-btn:hover { background: var(--bench-dark); }
+
+  /* hero */
+  .hero { background: var(--ink); color: #fff; padding: 70px 0 80px; }
+  .hero h2 { font-size: clamp(28px, 4.5vw, 44px); line-height: 1.15; font-weight: 800; max-width: 640px; }
+  .hero h2 .hl { color: var(--bench); }
+  .hero p { margin-top: 18px; font-size: 17px; color: #c3cad0; max-width: 560px; }
+  .hero .trust-strip { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 26px; font-size: 13.5px; color: #9aa3ab; }
+  .hero .trust-strip b { color: #e6e9eb; font-weight: 600; }
+
+  /* sections */
+  section { padding: 60px 0; }
+  section.alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .kicker { color: var(--bench); font-size: 12.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  h3 { font-size: 26px; font-weight: 800; margin-bottom: 26px; }
+
+  /* how it works */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .step { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+  .step .num { width: 30px; height: 30px; border-radius: 50%; background: var(--steel); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 12px; }
+  .step h4 { font-size: 15.5px; margin-bottom: 6px; }
+  .step p { font-size: 13.5px; color: var(--steel-light); }
+
+  /* catalog placeholder */
+  .catalog-note {
+    background: #fff8f0; border: 1px dashed var(--bench);
+    border-radius: 10px; padding: 26px; text-align: center; color: var(--steel);
+  }
+  .catalog-note b { color: var(--ink); }
+
+  /* promises */
+  .promises { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .promise { border-left: 3px solid var(--bench); padding: 6px 0 6px 16px; }
+  .promise h4 { font-size: 15.5px; }
+  .promise p { font-size: 13.5px; color: var(--steel-light); }
+
+  /* contact / CTA */
+  .contact { background: var(--ink); color: #fff; }
+  .contact h3 { color: #fff; }
+  .contact .ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 8px; }
+  .way { background: #262b30; border-radius: 10px; padding: 20px; }
+  .way h4 { font-size: 14.5px; margin-bottom: 4px; }
+  .way p { font-size: 13.5px; color: #aeb6bd; }
+  .way a { color: var(--bench); font-weight: 600; text-decoration: none; }
+
+  footer { background: #131619; color: #6f7880; font-size: 12.5px; padding: 26px 0; text-align: center; }
+  footer .wrap { display: flex; flex-direction: column; gap: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap" style="display:flex; align-items:center;">
+    <div class="brand">
+      <div class="logo">TB</div>
+      <div>
+        <h1>Tech<span>Bench</span></h1>
+        <small>Quality used tech · SA</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#promises">Our promises</a>
+      <a href="#contact" class="cta-btn">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Tested · Graded · Verified</div>
+    <h2>Quality pre-owned tech, <span class="hl">bench-tested</span> before it ships.</h2>
+    <p>Every device that leaves TechBench has been inspected, tested and graded on our bench — with honest condition reports and real photos. Buy with confidence, pay less than retail.</p>
+    <div class="trust-strip">
+      <span><b>✓</b> Every device tested</span>
+      <span><b>✓</b> Honest grading</span>
+      <span><b>✓</b> Free delivery</span>
+      <span><b>✓</b> Secure payment</span>
+    </div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h3>From our bench to your hands</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>We source &amp; test</h4>
+        <p>Devices are sourced and put through a full bench test: screen, battery, cameras, speakers, charging, and connectivity.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>We grade honestly</h4>
+        <p>Every unit gets a real condition grade (A / B / C) with a battery-health reading and honest photos. No surprises.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>You buy securely</h4>
+        <p>Clear pricing in ZAR, secure payment, and proof of purchase. We agree delivery before you pay anything.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h4>Free delivery</h4>
+        <p>Door-to-door courier at no cost to you. Device is packed safely and tracked until it arrives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="catalog">
+  <div class="wrap">
+    <div class="kicker">Current stock</div>
+    <h3>On the bench now</h3>
+    <div class="catalog-note">
+      <b>First unit inbound.</b> — An iPhone 12 128GB (A-grade) is being sourced and tested now.
+      Join the list and you'll hear first when it lands. <a href="#contact" style="color:var(--bench-dark); font-weight:600;">Get notified →</a>
+    </div>
+  </div>
+</section>
+
+<section id="promises">
+  <div class="wrap">
+    <div class="kicker">Why TechBench</div>
+    <h3>What we promise</h3>
+    <div class="promises">
+      <div class="promise">
+        <h4>Honest condition reports</h4>
+        <p>Real photos of the actual unit, real battery health, real grade. What you see is what ships.</p>
+      </div>
+      <div class="promise">
+        <h4>Tested on the bench</h4>
+        <p>Every function verified before listing — not "tested" in the vague sense, but actually bench-checked.</p>
+      </div>
+      <div class="promise">
+        <h4>IMEI &amp; legitimacy checked</h4>
+        <p>Clean IMEI checks and iCloud-status verification. We don't sell stolen or iCloud-locked devices. Ever.</p>
+      </div>
+      <div class="promise">
+        <h4>Clear communication</h4>
+        <p>One human, straight answers, on WhatsApp. You talk to the person who tested your device.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="contact">
+  <div class="wrap">
+    <div class="kicker">Contact</div>
+    <h3>Talk to the bench</h3>
+    <div class="ways">
+      <div class="way">
+        <h4>WhatsApp</h4>
+        <p>Fastest way to reach us.</p>
+        <p><a href="#">Chat on WhatsApp →</a></p>
+      </div>
+      <div class="way">
+        <h4>Email</h4>
+        <p>For formal enquiries &amp; invoices.</p>
+        <p><a href="mailto:info@techbench.co.za">info@techbench.co.za</a></p>
+      </div>
+      <div class="way">
+        <h4>Follow</h4>
+        <p>Stock drops &amp; tech tips.</p>
+        <p><a href="#">@techbench_za</a></p>
+      </div>
+    </div>
+    <p style="margin-top:22px; font-size:13px; color:#aeb6bd;">Based in South Africa · Prices in ZAR · We verify, we test, we deliver.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 TechBench — Quality used &amp; refurbished tech, South Africa.</span>
+    <span>Every device bench-tested before it ships.</span>
+  </div>
+</footer>
+
+</body>
+</html>
