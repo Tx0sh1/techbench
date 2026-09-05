@@ -3,41 +3,52 @@
 **TechBench** — quality used tech, bench-tested before it ships. South Africa.
 Owner: Karabo Mokgotho · Brand partner/analyst: Senku
 Repo: https://github.com/Tx0sh1/techbench · Live site: https://tx0sh1.github.io/techbench/
-Plan doc: ~/kb/life/omni-tech.md
+Plan doc: ~/kb/life/omni-tech.md · Local mirror: ~/techbench/
 
-## What's in this folder
+## Full asset inventory
 
 ```
 techbench/
-├── website/            index.html (the live one-pager — GitHub Pages source)
-├── assets/             brand-kit.md (palette, voice, all profile copy)
-├── docs/               invoice-template.md, warranty-returns.md,
-│                       terms-of-sale.md, scam-protocol.md
-├── content/            listing-template.md, authority-posts.md,
-│                       posting-templates.md, photo-checklist.md
-└── research/           research-notes.md (Sunsky + market comps),
-                        landed_cost.py (SARS calculator),
-                        cost_tracker.py (pilot data capture),
-                        pilot-data.json (populates as units sell)
+├── website/           index.html (LIVE one-pager) + v2-roadmap.md
+├── assets/            brand-kit.md — palette, voice, ALL profile copy
+├── docs/              LEGAL + OPS
+│   ├── invoice-template.md      invoice w/ payment-verify warning
+│   ├── warranty-returns.md      CPA-aware warranty & returns policy
+│   ├── terms-of-sale.md         full terms
+│   ├── bench-test-report.md     THE differentiator — customer-facing proof
+│   ├── scam-protocol.md         seller's defense (non-negotiable)
+│   ├── ops-checklists.md        pre-list → payment → pack → deliver → weekly
+│   ├── finance-tax.md           sole-prop SARS notes + ledger CSV format
+│   └── repair-roadmap.md        Phase 2: repairs menu, trade-in loop, gear
+├── content/           SALES + MARKETING ENGINE
+│   ├── listing-template.md      proven listing structure
+│   ├── customer-journey-messages.md  9-stage WhatsApp message pack
+│   ├── negotiation-playbook.md  best-price/lowball/hold plays + scripts
+│   ├── pricing-strategy.md      formula, comps, price ladder, rules
+│   ├── authority-posts.md       3 flagship trust posts
+│   ├── posting-templates.md     launch/SOLD/price-drop/inbound
+│   ├── photo-checklist.md       8 mandatory shots
+│   ├── lead-tracker.md          waitlist + follow-up cadence
+│   ├── model-selection.md       what to stock next + the ladder
+│   └── content-calendar-30day.md  day-by-day launch rhythm
+└── research/
+    ├── research-notes.md        Sunsky + market comps + MARGIN TENSION
+    ├── suppliers.md             backup sources + import decision framework
+    ├── landed_cost.py           SARS calculator (verified)
+    ├── cost_tracker.py          pilot data capture
+    └── pilot-data.json          populates as units sell
 ```
 
-## State (as of 2026-09-05)
-- ✅ Website built + live on GitHub Pages
-- ✅ Legal docs drafted (invoice, warranty, terms) — dates/values TBD by Karabo
-- ✅ Content kit complete (listing, authority, posting, photo templates)
-- ✅ Scam protocol written (Karabo's security lane)
-- ✅ Cost tools built + verified against pilot numbers
-- ✅ Research done — ⚠️ see margin tension in research-notes.md
-- ⬜ Domain techbench.co.za (AVAILABLE — register first)
-- ⬜ Handles @techbench_za / @techbenchsa (claim next)
-- ⬜ WhatsApp Business setup
-- ⬜ Order pilot unit (iPhone 12 128GB, R3,182 + R580 ship)
-- ⬜ Fill in Karabo's details: WhatsApp number, bank account, warranty days
+## State (2026-09-05)
+- ✅ Website LIVE on GitHub Pages
+- ✅ 20+ documents/tools built, versioned, pushed (commit 6f17a3a)
+- ⚠️ Research flags margin tension (Carbonite comp R4,500 vs landed R4,383)
+- ⬜ Karabo actions: domain, handles, WhatsApp number/bank/warranty days,
+      order pilot unit
 
-## The honest numbers (pilot unit)
-- Landed: R4,383 · Carbonite comp: R4,500 @ 85% BH
-- Margin tension — read research/research-notes.md before pricing
-
-## To fill in (Karabo)
-- WhatsApp number · bank details (invoice) · warranty days (blank in docs)
-- Domain registrar choice + handle variants actually available
+## Karabo's to-fill list (search [BRACKETS] in docs)
+- WhatsApp number (journey messages, brand kit, bench report)
+- Bank details (invoice)
+- Warranty days ([XX]-day — recommend 14-30)
+- City/meetup area (FAQ, checklist)
+- Handle variants actually available
