@@ -598,8 +598,10 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <script>
-  const WHATSAPP = "[TO-FILL: 27XXXXXXXXX]";
-  const WARRANTY_DAYS = "[TO-FILL: warranty]";
+  // SA local 064 792 8206 → international (no +)
+  const WHATSAPP = "27647928206";
+  // Set when decided, e.g. "14" or "30". Empty = soft copy until then.
+  const WARRANTY_DAYS = "";
 
   function waLink(message) {
     const num = WHATSAPP.replace(/[^0-9]/g, "");
@@ -612,8 +614,15 @@
       el.setAttribute("target", "_blank");
       el.setAttribute("rel", "noopener noreferrer");
     });
-    document.querySelectorAll("[data-warranty]").forEach(function (el) {
-      el.textContent = WARRANTY_DAYS;
+    document.querySelectorAll("[data-warranty-line]").forEach(function (el) {
+      el.textContent = WARRANTY_DAYS
+        ? WARRANTY_DAYS + "-day warranty"
+        : "Written warranty";
+    });
+    document.querySelectorAll("[data-warranty-faq]").forEach(function (el) {
+      el.innerHTML = WARRANTY_DAYS
+        ? WARRANTY_DAYS + "-day warranty against functional defects from delivery. It excludes physical damage, liquid damage, and battery wear. The full policy is written down — see <a href=\"docs/warranty.html\">Warranty &amp; returns</a>."
+        : "Every unit ships with a written warranty against functional defects from delivery — the day count is confirmed on your invoice before you pay (still being finalised for the pilot). It excludes physical damage, liquid damage, and battery wear. Full policy: <a href=\"docs/warranty.html\">Warranty &amp; returns</a>.";
     });
 
     const header = document.querySelector(".site-header");
@@ -704,7 +713,7 @@
           <li><span class="tick">✓</span> Honest A/B/C grades</li>
           <li><span class="tick">✓</span> IMEI &amp; iCloud clean</li>
           <li><span class="tick">✓</span> Free SA delivery</li>
-          <li><span class="tick">✓</span> <span data-warranty>[TO-FILL: warranty]</span>-day warranty</li>
+          <li><span class="tick">✓</span> <span data-warranty-line>Written warranty</span></li>
         </ul>
       </div>
 
@@ -994,7 +1003,7 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
-            <span data-warranty>[TO-FILL: warranty]</span>-day warranty against functional defects from delivery. It excludes physical damage, liquid damage, and battery wear. The full policy is written down and sent on request — not made up on the day.
+            <span data-warranty-faq>Every unit ships with a written warranty against functional defects from delivery — the day count is confirmed on your invoice before you pay (still being finalised for the pilot). It excludes physical damage, liquid damage, and battery wear. Full policy: <a href="docs/warranty.html">Warranty &amp; returns</a>.</span>
           </div>
         </div>
         <div class="faq-item">
@@ -1021,7 +1030,7 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
-            Yes, in [TO-FILL: city/area] — safe public meetup. The price may drop slightly if collection saves delivery.
+            Yes, in Mokopane — safe public meetup. The price may drop slightly if collection saves delivery.
           </div>
         </div>
         <div class="faq-item">
@@ -1082,7 +1091,7 @@
           </div>
         </article>
       </div>
-      <p class="contact-foot">Based in South Africa · Prices in ZAR · We verify, we test, we deliver.</p>
+      <p class="contact-foot">Based in Mokopane, South Africa · Prices in ZAR · We verify, we test, we deliver.</p>
     </div>
   </section>
 
@@ -1107,8 +1116,8 @@
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="[TO-FILL: terms/warranty links]">Terms of sale</a></li>
-          <li><a href="[TO-FILL: terms/warranty links]">Warranty &amp; returns</a></li>
+          <li><a href="docs/terms.html">Terms of sale</a></li>
+          <li><a href="docs/warranty.html">Warranty &amp; returns</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="mailto:info@techbench.co.za">info@techbench.co.za</a></li>
         </ul>
@@ -1130,12 +1139,12 @@
 
 <!--
  PLACEHOLDER REGISTER
- [TO-FILL: WhatsApp number] → const WHATSAPP
- [TO-FILL: warranty days] → const WARRANTY_DAYS
- [TO-FILL: city/area] → FAQ collect
+ [FILLED] WhatsApp → 27647928206 (064 792 8206)
+ [FILLED] city/area → Mokopane
+ [FILLED] terms/warranty → docs/terms.html · docs/warranty.html
+ [TO-FILL: warranty days] → const WARRANTY_DAYS ("" until decided; set e.g. "14")
  [TO-FILL: social handle] → Contact / Follow
  [TO-FILL: sample Bench Test Report link] → Bench Card template
- [TO-FILL: terms/warranty links] → Footer
  [TO-FILL: real price on each Bench Card]
  [TO-FILL: real photos]
 -->

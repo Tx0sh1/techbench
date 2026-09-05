@@ -47,8 +47,9 @@ techbench/
       order pilot unit
 
 ## Karabo's to-fill list (search [BRACKETS] in docs)
-- WhatsApp number (journey messages, brand kit, bench report)
-- Bank details (invoice)
-- Warranty days ([XX]-day — recommend 14-30)
-- City/meetup area (FAQ, checklist)
+- ✅ WhatsApp: 064 792 8206
+- ✅ Bank: TymeBank / GoTyme · Mokgotho Projects · 53000435272 (Current) — on invoice only
+- ✅ City: Mokopane
+- Warranty days ([XX]-day — recommend 14–30; leave blank until decided)
 - Handle variants actually available
+- Domain: techbench.co.za
