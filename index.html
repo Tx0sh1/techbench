@@ -600,8 +600,8 @@
 <script>
   // SA local 064 792 8206 → international (no +)
   const WHATSAPP = "27647928206";
-  // Set when decided, e.g. "14" or "30". Empty = soft copy until then.
-  const WARRANTY_DAYS = "";
+  // Pilot decision 2026-09-05: 7-day functional warranty. Revisit at unit 5-10.
+  const WARRANTY_DAYS = "7";
 
   function waLink(message) {
     const num = WHATSAPP.replace(/[^0-9]/g, "");
@@ -1142,7 +1142,7 @@
  [FILLED] WhatsApp → 27647928206 (064 792 8206)
  [FILLED] city/area → Mokopane
  [FILLED] terms/warranty → docs/terms.html · docs/warranty.html
- [TO-FILL: warranty days] → const WARRANTY_DAYS ("" until decided; set e.g. "14")
+ [FILLED] warranty days → 7 (const WARRANTY_DAYS = "7")
  [TO-FILL: social handle] → Contact / Follow
  [TO-FILL: sample Bench Test Report link] → Bench Card template
  [TO-FILL: real price on each Bench Card]
