@@ -1,233 +1,1197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechBench — Quality Used & Refurbished Tech, Tested & Verified in South Africa</title>
-<meta name="description" content="TechBench sells quality pre-owned iPhones and tech in South Africa. Every device is tested, graded, and verified before it ships. Free delivery. Built on trust.">
+<title>TechBench — Quality used tech, bench-tested before it ships</title>
+<meta name="description" content="TechBench sells quality pre-owned tech in South Africa. Every device is inspected, tested and graded on our bench — honest condition reports, real photos, free delivery, warranty.">
+<meta name="theme-color" content="#1a1d21">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="TechBench — Quality used tech, bench-tested before it ships">
+<meta property="og:description" content="Every device inspected, tested and graded on our bench. Honest condition reports, real photos, free delivery. South Africa · ZAR.">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:site_name" content="TechBench">
+<!-- Absolute og:url / og:image when domain is live — leave relative until then -->
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23e4572e'/%3E%3Ctext x='64' y='84' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='64' fill='%23fff'%3ETB%3C/text%3E%3C/svg%3E">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TechBench — Quality used tech, bench-tested before it ships">
+<meta name="twitter:description" content="Every device inspected, tested and graded on our bench. Honest reports, real photos, free delivery. South Africa.">
+
+<!-- Favicon: TB tile -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23e4572e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='28' fill='%23fff'%3ETB%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "TechBench",
+  "description": "Quality used tech, bench-tested before it ships. South Africa.",
+  "email": "info@techbench.co.za",
+  "priceRange": "ZAR",
+  "currenciesAccepted": "ZAR",
+  "paymentAccepted": "EFT",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "ZA"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "South Africa"
+  }
+}
+</script>
+
 <style>
   :root {
     --ink: #1a1d21;
     --paper: #f7f7f5;
-    --bench: #e4572e;      /* warm workbench orange — the accent */
+    --bench: #e4572e;
     --bench-dark: #c7441f;
-    --steel: #2e353b;      /* tool steel gray */
+    --steel: #2e353b;
     --steel-light: #5a666e;
     --line: #e2e0da;
     --ok: #1e7d46;
+    --ink-deep: #131619;
+    --surface: #ffffff;
+    --header-h: 64px;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 12px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--paper);
     color: var(--ink);
     line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
-  /* header */
-  header {
+  img { max-width: 100%; display: block; }
+  a { color: var(--bench-dark); }
+  a:hover { color: var(--bench); }
+  :focus-visible {
+    outline: 2px solid var(--bench);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* —— Header —— */
+  .site-header {
     background: var(--ink);
     color: #fff;
-    padding: 18px 0;
-    position: sticky; top: 0; z-index: 10;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow 0.2s ease;
   }
-  .brand { display: flex; align-items: center; gap: 12px; }
+  .site-header.is-scrolled {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-h);
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    flex-shrink: 0;
+  }
   .logo {
-    width: 38px; height: 38px; border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     background: var(--bench);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 20px; color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: -0.5px;
   }
-  .brand h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.3px; }
-  .brand h1 span { color: var(--bench); }
-  .brand small { display: block; font-size: 11px; color: #9aa3ab; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
-  nav { display: flex; gap: 22px; margin-left: auto; align-items: center; }
-  nav a { color: #cfd5da; text-decoration: none; font-size: 14px; font-weight: 500; }
-  nav a:hover { color: #fff; }
-  .cta-btn {
-    background: var(--bench); color: #fff !important;
-    padding: 8px 16px; border-radius: 6px; font-weight: 600;
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
   }
-  .cta-btn:hover { background: var(--bench-dark); }
-
-  /* hero */
-  .hero { background: var(--ink); color: #fff; padding: 70px 0 80px; }
-  .hero h2 { font-size: clamp(28px, 4.5vw, 44px); line-height: 1.15; font-weight: 800; max-width: 640px; }
-  .hero h2 .hl { color: var(--bench); }
-  .hero p { margin-top: 18px; font-size: 17px; color: #c3cad0; max-width: 560px; }
-  .hero .trust-strip { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 26px; font-size: 13.5px; color: #9aa3ab; }
-  .hero .trust-strip b { color: #e6e9eb; font-weight: 600; }
-
-  /* sections */
-  section { padding: 60px 0; }
-  section.alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .kicker { color: var(--bench); font-size: 12.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-  h3 { font-size: 26px; font-weight: 800; margin-bottom: 26px; }
-
-  /* how it works */
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-  .step { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
-  .step .num { width: 30px; height: 30px; border-radius: 50%; background: var(--steel); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 12px; }
-  .step h4 { font-size: 15.5px; margin-bottom: 6px; }
-  .step p { font-size: 13.5px; color: var(--steel-light); }
-
-  /* catalog placeholder */
-  .catalog-note {
-    background: #fff8f0; border: 1px dashed var(--bench);
-    border-radius: 10px; padding: 26px; text-align: center; color: var(--steel);
+  .brand-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
   }
-  .catalog-note b { color: var(--ink); }
+  .brand-name span { color: var(--bench); }
+  .brand-tag {
+    font-size: 10px;
+    color: #9aa3ab;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
 
-  /* promises */
-  .promises { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-  .promise { border-left: 3px solid var(--bench); padding: 6px 0 6px 16px; }
-  .promise h4 { font-size: 15.5px; }
-  .promise p { font-size: 13.5px; color: var(--steel-light); }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav a {
+    color: #cfd5da;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 6px 8px;
+  }
+  .nav a:hover { color: #fff; }
+  .nav .nav-cta {
+    background: var(--bench);
+    color: #fff !important;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .nav .nav-cta:hover { background: var(--bench-dark); }
 
-  /* contact / CTA */
-  .contact { background: var(--ink); color: #fff; }
-  .contact h3 { color: #fff; }
-  .contact .ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 8px; }
-  .way { background: #262b30; border-radius: 10px; padding: 20px; }
-  .way h4 { font-size: 14.5px; margin-bottom: 4px; }
-  .way p { font-size: 13.5px; color: #aeb6bd; }
-  .way a { color: var(--bench); font-weight: 600; text-decoration: none; }
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid #3a4249;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-toggle svg { width: 20px; height: 20px; }
 
-  footer { background: #131619; color: #6f7880; font-size: 12.5px; padding: 26px 0; text-align: center; }
-  footer .wrap { display: flex; flex-direction: column; gap: 6px; }
+  @media (max-width: 720px) {
+    .nav-toggle { display: inline-flex; }
+    .nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 8px 20px 16px;
+      border-top: 1px solid #2a3036;
+      gap: 2px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+    .nav.is-open { display: flex; }
+    .nav a {
+      padding: 12px 10px;
+      font-size: 15px;
+      border-radius: 6px;
+    }
+    .nav .nav-cta {
+      margin: 6px 0 0;
+      text-align: center;
+    }
+    .brand-tag { display: none; }
+  }
+
+  /* —— Shared —— */
+  .kicker {
+    color: var(--bench);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    color: var(--ink);
+  }
+  .band {
+    padding: 64px 0;
+    border-top: 1px solid var(--line);
+  }
+  .band--paper { background: var(--paper); }
+  .band--white { background: var(--surface); }
+  .band--ink { background: var(--ink); color: #fff; border-top: none; }
+  .band--ink .section-title { color: #fff; }
+  .band--tint {
+    background: #faf3ef;
+    border-top: 1px solid #f0ddd4;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--bench);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    line-height: 1.3;
+  }
+  .btn:hover { background: var(--bench-dark); color: #fff !important; }
+  .btn:focus-visible { outline-offset: 3px; }
+  .btn--ghost {
+    background: transparent;
+    color: #cfd5da !important;
+    border: 1px solid #3a4249;
+    font-weight: 600;
+  }
+  .btn--ghost:hover {
+    background: #262b30;
+    color: #fff !important;
+    border-color: #4a535c;
+  }
+  .btn--block { width: 100%; }
+
+  .tick { color: var(--ok); font-weight: 700; margin-right: 4px; }
+
+  /* —— Hero —— */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 56px 0 64px;
+  }
+  .hero .kicker { margin-bottom: 14px; }
+  .hero h1 {
+    font-size: clamp(26px, 5.5vw, 42px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+    max-width: 18ch;
+  }
+  .hero h1 .hl { color: var(--bench); }
+  .hero-sub {
+    margin-top: 18px;
+    font-size: 16.5px;
+    color: #c3cad0;
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  .trust-strip {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    font-size: 13.5px;
+    color: #b8c0c7;
+  }
+  .trust-strip li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-ctas {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* —— How it works —— */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 20px;
+    transition: box-shadow 0.15s ease;
+  }
+  .step:hover { box-shadow: 0 4px 16px rgba(26, 29, 33, 0.06); }
+  .step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--steel);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .step h3 {
+    font-size: 15.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .step p {
+    font-size: 13.5px;
+    color: var(--steel-light);
+    line-height: 1.55;
+  }
+
+  /* —— Stock / Bench Card —— */
+  .stock-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  /* Bench Card — technician test-sheet look; duplicate this block to add stock */
+  .bench-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.15s ease;
+  }
+  .bench-card:hover { box-shadow: 0 6px 20px rgba(26, 29, 33, 0.08); }
+  .bench-card__sheet {
+    padding: 20px 20px 18px;
+  }
+  .bench-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .bench-no {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--steel);
+    text-transform: uppercase;
+  }
+  .grade-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--ok);
+    background: #e8f5ee;
+    border: 1px solid #c5e4d1;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .bench-card__model {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .bench-checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .bench-checks li {
+    font-size: 13.5px;
+    color: var(--steel);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .bench-report {
+    display: inline-block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--bench-dark);
+    text-decoration: none;
+    margin-bottom: 16px;
+  }
+  .bench-report:hover { color: var(--bench); }
+  .bench-card__photo {
+    aspect-ratio: 4 / 3;
+    background: var(--paper);
+    border: 1px dashed var(--line);
+    border-radius: 6px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--steel-light);
+    font-size: 13px;
+    text-align: center;
+    padding: 16px;
+  }
+  .bench-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .bench-card__footer {
+    padding: 16px 20px 20px;
+    border-top: 1px solid var(--line);
+    background: #fafaf8;
+  }
+  .bench-price {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .bench-price small {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--steel-light);
+    margin-top: 2px;
+    letter-spacing: 0;
+  }
+
+  /* Inbound / waitlist card */
+  .inbound-card {
+    background: var(--surface);
+    border: 1px dashed var(--bench);
+    border-radius: 10px;
+    padding: 28px 24px;
+    max-width: 520px;
+  }
+  .inbound-card .status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--bench);
+    background: #fdf0eb;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .inbound-card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .inbound-card p {
+    font-size: 14.5px;
+    color: var(--steel-light);
+    margin-bottom: 20px;
+    max-width: 42ch;
+  }
+
+  /* —— Promises —— */
+  .promises {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px 28px;
+  }
+  .promise {
+    border-left: 3px solid var(--bench);
+    padding: 2px 0 2px 16px;
+  }
+  .promise h3 {
+    font-size: 15.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .promise p {
+    font-size: 13.5px;
+    color: var(--steel-light);
+    line-height: 1.55;
+  }
+
+  /* —— Differentiator —— */
+  .diff-inner { max-width: 640px; }
+  .diff-inner .section-title { margin-bottom: 14px; }
+  .diff-inner > p {
+    font-size: 16px;
+    color: var(--steel);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .diff-note {
+    font-size: 12.5px;
+    color: var(--steel-light);
+    font-style: italic;
+  }
+
+  /* —— FAQ —— */
+  .faq-list {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 16px 18px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 650;
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1.35;
+  }
+  .faq-q:hover { background: #fafaf8; }
+  .faq-q:focus-visible { outline-offset: -2px; }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--steel);
+    line-height: 1;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .faq-item.is-open .faq-icon {
+    background: var(--bench);
+    border-color: var(--bench);
+    color: #fff;
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    display: none;
+    padding: 0 18px 16px;
+    font-size: 14px;
+    color: var(--steel-light);
+    line-height: 1.55;
+  }
+  .faq-item.is-open .faq-a { display: block; }
+
+  /* —— Contact —— */
+  .ways {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .way {
+    background: #262b30;
+    border: 1px solid #32383e;
+    border-radius: 10px;
+    padding: 22px 20px;
+    transition: box-shadow 0.15s ease;
+  }
+  .way:hover { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); }
+  .way h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  .way p {
+    font-size: 13.5px;
+    color: #aeb6bd;
+    margin-bottom: 14px;
+  }
+  .way .btn { font-size: 14px; padding: 10px 16px; }
+  .way a.link-plain {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14.5px;
+  }
+  .way a.link-plain:hover { color: var(--bench); }
+  .social-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    font-size: 13.5px;
+  }
+  .social-slots a {
+    color: #cfd5da;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .social-slots a:hover { color: var(--bench); }
+  .contact-foot {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #aeb6bd;
+  }
+
+  /* —— Footer —— */
+  .site-footer {
+    background: var(--ink-deep);
+    color: #6f7880;
+    font-size: 12.5px;
+    padding: 28px 0 36px;
+    text-align: center;
+  }
+  .site-footer .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+  }
+  .footer-legal a {
+    color: #8a949c;
+    text-decoration: none;
+  }
+  .footer-legal a:hover { color: #cfd5da; }
+
+  /* —— Floating WhatsApp —— */
+  .wa-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .wa-float__tip {
+    background: var(--ink);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(8px);
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .wa-float:hover .wa-float__tip,
+  .wa-float:focus-within .wa-float__tip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .wa-float__btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bench);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(228, 87, 46, 0.45);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .wa-float__btn:hover {
+    background: var(--bench-dark);
+    transform: scale(1.05);
+    color: #fff;
+  }
+  .wa-float__btn svg { width: 28px; height: 28px; fill: currentColor; }
+
+  @media (max-width: 360px) {
+    .wrap { padding: 0 14px; }
+    .hero { padding: 40px 0 48px; }
+    .band { padding: 48px 0; }
+    .wa-float__tip { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap" style="display:flex; align-items:center;">
-    <div class="brand">
-      <div class="logo">TB</div>
-      <div>
-        <h1>Tech<span>Bench</span></h1>
-        <small>Quality used tech · SA</small>
+<!--
+  CONFIG — replace the WhatsApp constant below (also listed in PLACEHOLDER REGISTER at EOF).
+  International format, no + sign. Example: 27821234567
+-->
+<script>
+  const WHATSAPP = "[TO-FILL: 27XXXXXXXXX]";
+  const WARRANTY_DAYS = "[TO-FILL: warranty]";
+
+  function waLink(message) {
+    const num = WHATSAPP.replace(/[^0-9]/g, "");
+    return "https://wa.me/" + num + "?text=" + encodeURIComponent(message);
+  }
+
+  function applyWhatsAppLinks() {
+    document.querySelectorAll("[data-wa]").forEach(function (el) {
+      const msg = el.getAttribute("data-wa") || "Hi TechBench!";
+      el.setAttribute("href", waLink(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");
+    });
+  }
+
+  function applyWarrantySlots() {
+    document.querySelectorAll("[data-warranty]").forEach(function (el) {
+      el.textContent = WARRANTY_DAYS;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    applyWhatsAppLinks();
+    applyWarrantySlots();
+
+    /* Sticky header shadow */
+    const header = document.querySelector(".site-header");
+    function onScroll() {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* Mobile nav */
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".nav");
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        const open = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      nav.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    /* FAQ accordion */
+    document.querySelectorAll(".faq-q").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const item = btn.closest(".faq-item");
+        const wasOpen = item.classList.contains("is-open");
+        document.querySelectorAll(".faq-item.is-open").forEach(function (open) {
+          open.classList.remove("is-open");
+          open.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+        });
+        if (!wasOpen) {
+          item.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  });
+</script>
+
+<a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+<style>.skip-link:focus{position:fixed;left:12px;top:12px;z-index:200;width:auto;height:auto;overflow:visible;background:#fff;color:var(--ink);padding:10px 14px;border-radius:6px;font-weight:700;text-decoration:none;}</style>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="TechBench home">
+      <div class="logo" aria-hidden="true">TB</div>
+      <div class="brand-text">
+        <span class="brand-name">Tech<span>Bench</span></span>
+        <span class="brand-tag">Quality used tech · SA</span>
       </div>
-    </div>
-    <nav>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Primary">
       <a href="#how">How it works</a>
-      <a href="#promises">Our promises</a>
-      <a href="#contact" class="cta-btn">Get in touch</a>
+      <a href="#stock">Stock</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-cta" href="#" data-wa="Hi TechBench! I'm looking for a used iPhone.">WhatsApp us</a>
     </nav>
   </div>
 </header>
 
-<div class="hero">
-  <div class="wrap">
-    <div class="kicker">Tested · Graded · Verified</div>
-    <h2>Quality pre-owned tech, <span class="hl">bench-tested</span> before it ships.</h2>
-    <p>Every device that leaves TechBench has been inspected, tested and graded on our bench — with honest condition reports and real photos. Buy with confidence, pay less than retail.</p>
-    <div class="trust-strip">
-      <span><b>✓</b> Every device tested</span>
-      <span><b>✓</b> Honest grading</span>
-      <span><b>✓</b> Free delivery</span>
-      <span><b>✓</b> Secure payment</span>
-    </div>
-  </div>
-</div>
+<main id="main">
 
-<section id="how">
-  <div class="wrap">
-    <div class="kicker">How it works</div>
-    <h3>From our bench to your hands</h3>
-    <div class="steps">
-      <div class="step">
-        <div class="num">1</div>
-        <h4>We source &amp; test</h4>
-        <p>Devices are sourced and put through a full bench test: screen, battery, cameras, speakers, charging, and connectivity.</p>
-      </div>
-      <div class="step">
-        <div class="num">2</div>
-        <h4>We grade honestly</h4>
-        <p>Every unit gets a real condition grade (A / B / C) with a battery-health reading and honest photos. No surprises.</p>
-      </div>
-      <div class="step">
-        <div class="num">3</div>
-        <h4>You buy securely</h4>
-        <p>Clear pricing in ZAR, secure payment, and proof of purchase. We agree delivery before you pay anything.</p>
-      </div>
-      <div class="step">
-        <div class="num">4</div>
-        <h4>Free delivery</h4>
-        <p>Door-to-door courier at no cost to you. Device is packed safely and tracked until it arrives.</p>
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="top" aria-labelledby="hero-heading">
+    <div class="wrap">
+      <p class="kicker">Tested · Graded · Verified</p>
+      <h1 id="hero-heading">Quality pre-owned tech, <span class="hl">bench-tested</span> before it ships.</h1>
+      <p class="hero-sub">Every device that leaves TechBench has been inspected, tested and graded on our bench — honest condition reports and real photos of the actual unit. Buy with confidence, pay less than retail.</p>
+      <ul class="trust-strip" aria-label="Trust points">
+        <li><span class="tick" aria-hidden="true">✓</span> Every device tested</li>
+        <li><span class="tick" aria-hidden="true">✓</span> Honest grading</li>
+        <li><span class="tick" aria-hidden="true">✓</span> IMEI &amp; iCloud verified</li>
+        <li><span class="tick" aria-hidden="true">✓</span> Free delivery</li>
+        <li><span class="tick" aria-hidden="true">✓</span> <span data-warranty>[TO-FILL: warranty]</span>-day warranty</li>
+      </ul>
+      <div class="hero-ctas">
+        <a class="btn" href="#" data-wa="Hi TechBench! I'm looking for a used iPhone.">WhatsApp us</a>
+        <a class="btn btn--ghost" href="#stock">See current stock ↓</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="alt" id="catalog">
-  <div class="wrap">
-    <div class="kicker">Current stock</div>
-    <h3>On the bench now</h3>
-    <div class="catalog-note">
-      <b>First unit inbound.</b> — An iPhone 12 128GB (A-grade) is being sourced and tested now.
-      Join the list and you'll hear first when it lands. <a href="#contact" style="color:var(--bench-dark); font-weight:600;">Get notified →</a>
-    </div>
-  </div>
-</section>
-
-<section id="promises">
-  <div class="wrap">
-    <div class="kicker">Why TechBench</div>
-    <h3>What we promise</h3>
-    <div class="promises">
-      <div class="promise">
-        <h4>Honest condition reports</h4>
-        <p>Real photos of the actual unit, real battery health, real grade. What you see is what ships.</p>
-      </div>
-      <div class="promise">
-        <h4>Tested on the bench</h4>
-        <p>Every function verified before listing — not "tested" in the vague sense, but actually bench-checked.</p>
-      </div>
-      <div class="promise">
-        <h4>IMEI &amp; legitimacy checked</h4>
-        <p>Clean IMEI checks and iCloud-status verification. We don't sell stolen or iCloud-locked devices. Ever.</p>
-      </div>
-      <div class="promise">
-        <h4>Clear communication</h4>
-        <p>One human, straight answers, on WhatsApp. You talk to the person who tested your device.</p>
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="band band--paper" id="how" aria-labelledby="how-heading">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2 class="section-title" id="how-heading">From our bench to your hands</h2>
+      <div class="steps">
+        <article class="step">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>We source &amp; test</h3>
+          <p>Devices are sourced and put through a full bench test: screen, battery, cameras, speakers, charging, connectivity.</p>
+        </article>
+        <article class="step">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>We grade honestly</h3>
+          <p>A real A/B/C grade, real battery-health percentage, real photos of the actual unit. No surprises.</p>
+        </article>
+        <article class="step">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>You buy securely</h3>
+          <p>Clear ZAR price, EFT to the account on your invoice. We ship only once payment reflects in our bank — verified in-bank, not on screenshots. That protects us both.</p>
+        </article>
+        <article class="step">
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3>Free delivery</h3>
+          <p>Door-to-door courier at no cost. Tracking number the day it ships.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="alt" id="contact">
-  <div class="wrap">
-    <div class="kicker">Contact</div>
-    <h3>Talk to the bench</h3>
-    <div class="ways">
-      <div class="way">
-        <h4>WhatsApp</h4>
-        <p>Fastest way to reach us.</p>
-        <p><a href="#">Chat on WhatsApp →</a></p>
+  <!-- ========== STOCK ========== -->
+  <section class="band band--white" id="stock" aria-labelledby="stock-heading">
+    <div class="wrap">
+      <p class="kicker">Current stock</p>
+      <h2 class="section-title" id="stock-heading">On the bench now</h2>
+
+      <div class="stock-grid">
+        <!--
+          LIVE STATE (2026-09): no listed stock yet.
+          First unit inbound — waitlist card below is what visitors see.
+          When a unit is ready, duplicate the BENCH CARD TEMPLATE (commented
+          below this grid) into this grid and remove or keep the inbound card.
+        -->
+
+        <!-- INBOUND / WAITLIST CARD (shows today) -->
+        <article class="inbound-card">
+          <span class="status">Inbound</span>
+          <h3>First unit on the bench — iPhone 12 · 128GB · A-grade. Inbound now.</h3>
+          <p>Join the list and you'll hear first when it lands. The list also tells us what to source next.</p>
+          <a class="btn" href="#" data-wa="Hi TechBench — add me to the waitlist for the iPhone 12.">Join the waitlist</a>
+        </article>
       </div>
-      <div class="way">
-        <h4>Email</h4>
-        <p>For formal enquiries &amp; invoices.</p>
-        <p><a href="mailto:info@techbench.co.za">info@techbench.co.za</a></p>
-      </div>
-      <div class="way">
-        <h4>Follow</h4>
-        <p>Stock drops &amp; tech tips.</p>
-        <p><a href="#">@techbench_za</a></p>
+
+      <!--
+      ========== BENCH CARD TEMPLATE ==========
+      Copy-paste this entire <article class="bench-card">…</article> block
+      into .stock-grid above for each new unit. Replace every [TO-FILL] and
+      the SAMPLE price comment. Owner replaces R5,299 per unit.
+
+      <article class="bench-card">
+        <div class="bench-card__sheet">
+          <div class="bench-card__top">
+            <span class="bench-no">Bench No. TB-001</span>
+            <span class="grade-badge"><span aria-hidden="true">✓</span> A-Grade</span>
+          </div>
+          <div class="bench-card__photo">
+            [TO-FILL: real photos]
+            <!- - When ready: <img src="photos/tb-001-front.jpg" alt="iPhone 12 128GB — actual unit TB-001"> - ->
+          </div>
+          <p class="bench-card__model">iPhone 12 · 128GB</p>
+          <ul class="bench-checks">
+            <li><span class="tick" aria-hidden="true">✓</span> IMEI clean</li>
+            <li><span class="tick" aria-hidden="true">✓</span> iCloud unlocked</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Battery health 90%</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Full bench test passed</li>
+          </ul>
+          <a class="bench-report" href="[TO-FILL: sample Bench Test Report link]">Full Bench Test Report →</a>
+        </div>
+        <div class="bench-card__footer">
+          <!- - SAMPLE price — owner replaces this per unit - ->
+          <p class="bench-price">R5,299 <small>[TO-FILL: real price on each Bench Card]</small></p>
+          <a class="btn btn--block" href="#"
+             data-wa="Hi TechBench! I'd like to reserve Bench No. TB-001 (iPhone 12, 128GB) for R5,299.">
+            Reserve on WhatsApp
+          </a>
+        </div>
+      </article>
+      ========== END BENCH CARD TEMPLATE ==========
+      -->
+    </div>
+  </section>
+
+  <!-- ========== WHY TECHBENCH ========== -->
+  <section class="band band--paper" id="why" aria-labelledby="why-heading">
+    <div class="wrap">
+      <p class="kicker">Why TechBench</p>
+      <h2 class="section-title" id="why-heading">What we promise</h2>
+      <div class="promises">
+        <article class="promise">
+          <h3>Honest condition reports</h3>
+          <p>Real photos of the actual unit, real battery health, real grade. What you see is what ships.</p>
+        </article>
+        <article class="promise">
+          <h3>Tested on the bench</h3>
+          <p>Every function verified before listing — not "tested" in the vague sense, but actually bench-checked.</p>
+        </article>
+        <article class="promise">
+          <h3>IMEI &amp; legitimacy checked</h3>
+          <p>Clean IMEI and iCloud-status verification. We don't sell stolen or iCloud-locked devices. Ever.</p>
+        </article>
+        <article class="promise">
+          <h3>Talk to the person who tested it</h3>
+          <p>One human, straight answers, on WhatsApp. No call centre, no scripts.</p>
+        </article>
       </div>
     </div>
-    <p style="margin-top:22px; font-size:13px; color:#aeb6bd;">Based in South Africa · Prices in ZAR · We verify, we test, we deliver.</p>
-  </div>
-</section>
+  </section>
 
-<footer>
+  <!-- ========== DIFFERENTIATOR ========== -->
+  <section class="band band--tint" id="report" aria-labelledby="report-heading">
+    <div class="wrap">
+      <div class="diff-inner">
+        <p class="kicker">The Bench Test Report</p>
+        <h2 class="section-title" id="report-heading">Every phone ships with its Bench Test Report.</h2>
+        <p>A serial-numbered report of every check that unit passed — identity, battery, screen, cameras, Face ID, charging. Ask to see it before you buy; it's yours to keep. That's the difference between TechBench and a random classifieds seller.</p>
+        <p class="diff-note">I store repairs/refurb work here — coming later.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="band band--white" id="faq" aria-labelledby="faq-heading">
+    <div class="wrap">
+      <p class="kicker">FAQ</p>
+      <h2 class="section-title" id="faq-heading">Straight answers</h2>
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q1" aria-controls="faq-a1">
+            Are your phones stolen or locked?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            No. Every device passes an IMEI blacklist check and an iCloud/activation-lock check before listing. We don't sell locked or blacklisted devices — ever.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q2" aria-controls="faq-a2">
+            Why are you cheaper than iStore Preowned?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+            iStore sells warranty + a brand name. We sell bench-test proof + a warranty + direct communication with the person who tested your device. No storefront, no staff — that's where your saving comes from.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q3" aria-controls="faq-a3">
+            What does the warranty cover?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+            <span data-warranty>[TO-FILL: warranty]</span>-day warranty against functional defects from delivery. It excludes physical damage, liquid damage, and battery wear. The full policy is written down and sent on request — not made up on the day.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q4" aria-controls="faq-a4">
+            Do you deliver?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+            Yes — free door-to-door via Paxi/Courier Guy. Tracking number the day it ships.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q5" aria-controls="faq-a5">
+            How do I pay?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+            EFT to the account on your invoice. We ship once payment reflects in our bank — verified in-bank, not on screenshots. That protects us both.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q6" aria-controls="faq-a6">
+            Can I collect?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+            Yes, in [TO-FILL: city/area] — safe public meetup. The price may drop slightly if collection saves delivery.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q7" aria-controls="faq-a7">
+            Do you buy phones / trade-ins?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7">
+            Not yet — coming soon. <!-- Owner flips this answer when Phase 2 launches. -->
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" type="button" aria-expanded="false" id="faq-q8" aria-controls="faq-a8">
+            Can you fix my current phone?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8">
+            Not yet — we sell bench-tested devices for now. Watch this space.
+            <!-- Owner replaces with repair menu when Phase 2 launches. -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="band band--ink" id="contact" aria-labelledby="contact-heading">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2 class="section-title" id="contact-heading">Talk to the bench</h2>
+      <div class="ways">
+        <article class="way">
+          <h3>WhatsApp</h3>
+          <p>Fastest way to reach us.</p>
+          <a class="btn" href="#" data-wa="Hi TechBench! I'm looking for a used iPhone.">Chat on WhatsApp →</a>
+        </article>
+        <article class="way">
+          <h3>Email</h3>
+          <p>For formal enquiries &amp; invoices.</p>
+          <a class="link-plain" href="mailto:info@techbench.co.za">info@techbench.co.za</a>
+        </article>
+        <article class="way">
+          <h3>Follow</h3>
+          <p>Stock drops &amp; honest-tech tips.</p>
+          <div class="social-slots">
+            <!-- [TO-FILL: social handle] — leave one link slot per platform -->
+            <a href="#">X · [TO-FILL: @techbench_za]</a>
+            <a href="#">IG · [TO-FILL: @techbench_za]</a>
+            <a href="#">FB · [TO-FILL: @techbench_za]</a>
+          </div>
+        </article>
+      </div>
+      <p class="contact-foot">Based in South Africa · Prices in ZAR · We verify, we test, we deliver.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
   <div class="wrap">
     <span>© 2026 TechBench — Quality used &amp; refurbished tech, South Africa.</span>
     <span>Every device bench-tested before it ships.</span>
+    <div class="footer-legal">
+      <!-- [TO-FILL: terms/warranty links] -->
+      <a href="[TO-FILL: terms/warranty links]">Terms of sale</a>
+      <a href="[TO-FILL: terms/warranty links]">Warranty &amp; returns</a>
+    </div>
+    <span>TechBench is a South African sole proprietorship. Prices in ZAR.</span>
   </div>
 </footer>
+
+<!-- Floating WhatsApp -->
+<div class="wa-float">
+  <span class="wa-float__tip" id="wa-tip">Chat with the bench</span>
+  <a class="wa-float__btn"
+     href="#"
+     data-wa="Hi TechBench! I'm looking for a used iPhone."
+     aria-label="Chat with the bench on WhatsApp"
+     aria-describedby="wa-tip">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.150-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!--
+══════════════════════════════════════════════════════════════════════════════
+ PLACEHOLDER REGISTER — replace every token before go-live
+══════════════════════════════════════════════════════════════════════════════
+ [TO-FILL: WhatsApp number]          → const WHATSAPP at top of <script>
+ [TO-FILL: warranty days]            → const WARRANTY_DAYS + trust strip + FAQ
+ [TO-FILL: city/area]                → FAQ "Can I collect?"
+ [TO-FILL: social handle]            → Contact Follow cards (X / IG / FB)
+ [TO-FILL: sample Bench Test Report link] → Bench Card template report href
+ [TO-FILL: terms/warranty links]     → Footer legal links
+ [TO-FILL: real price on each Bench Card] → Bench Card template price line
+ [TO-FILL: real photos]              → Bench Card photo slot
+══════════════════════════════════════════════════════════════════════════════
+ SELF-CHECK (2026-09-05 build)
+ ✓ Every CTA deep-links to WhatsApp via data-wa + waLink(), or mailto where stated
+ ✓ Zero invented stock/testimonials/prices shown live — inbound waitlist only;
+   sample Bench Card lives in an HTML comment template
+ ✓ Orange used as accent only (logo, CTAs, kickers, status); body text is ink/steel
+ ✓ Layout holds at 360px; sticky header slim; mobile nav collapses
+ ✓ All [TO-FILL] tokens present; collected in this comment block
+══════════════════════════════════════════════════════════════════════════════
+-->
 
 </body>
 </html>
