@@ -1,55 +1,19 @@
-# TechBench — Project Hub
+# TechBench — Website
 
-**TechBench** — quality used tech, bench-tested before it ships. South Africa.
-Owner: Karabo Mokgotho · Brand partner/analyst: Senku
-Repo: https://github.com/Tx0sh1/techbench · Live site: https://tx0sh1.github.io/techbench/
-Plan doc: ~/kb/life/omni-tech.md · Local mirror: ~/techbench/
+Quality used tech, bench-tested before it ships. South Africa.
+Live: https://tx0sh1.github.io/techbench/ · WhatsApp: 064 792 8206
 
-## Full asset inventory
+## What's in this repo
+This repo holds ONLY the public website (one-pager + customer legal pages).
+The business playbook (pricing, margins, suppliers, research) lives in a
+private repo — this one intentionally has no commercial data.
 
-```
-techbench/
-├── website/           index.html (LIVE one-pager) + v2-roadmap.md
-├── assets/            brand-kit.md — palette, voice, ALL profile copy
-├── docs/              LEGAL + OPS
-│   ├── invoice-template.md      invoice w/ payment-verify warning
-│   ├── warranty-returns.md      CPA-aware warranty & returns policy
-│   ├── terms-of-sale.md         full terms
-│   ├── bench-test-report.md     THE differentiator — customer-facing proof
-│   ├── scam-protocol.md         seller's defense (non-negotiable)
-│   ├── ops-checklists.md        pre-list → payment → pack → deliver → weekly
-│   ├── finance-tax.md           sole-prop SARS notes + ledger CSV format
-│   └── repair-roadmap.md        Phase 2: repairs menu, trade-in loop, gear
-├── content/           SALES + MARKETING ENGINE
-│   ├── listing-template.md      proven listing structure
-│   ├── customer-journey-messages.md  9-stage WhatsApp message pack
-│   ├── negotiation-playbook.md  best-price/lowball/hold plays + scripts
-│   ├── pricing-strategy.md      formula, comps, price ladder, rules
-│   ├── authority-posts.md       3 flagship trust posts
-│   ├── posting-templates.md     launch/SOLD/price-drop/inbound
-│   ├── photo-checklist.md       8 mandatory shots
-│   ├── lead-tracker.md          waitlist + follow-up cadence
-│   ├── model-selection.md       what to stock next + the ladder
-│   └── content-calendar-30day.md  day-by-day launch rhythm
-└── research/
-    ├── research-notes.md        Sunsky + market comps + MARGIN TENSION
-    ├── suppliers.md             backup sources + import decision framework
-    ├── landed_cost.py           SARS calculator (verified)
-    ├── cost_tracker.py          pilot data capture
-    └── pilot-data.json          populates as units sell
-```
+- index.html — the one-pager (7-day written warranty, FAQ, contact)
+- docs/terms.html — Terms of Sale
+- docs/warranty.html — Warranty & Returns policy
 
-## State (2026-09-05)
-- ✅ Website LIVE on GitHub Pages
-- ✅ 20+ documents/tools built, versioned, pushed (commit 6f17a3a)
-- ⚠️ Research flags margin tension (Carbonite comp R4,500 vs landed R4,383)
-- ⬜ Karabo actions: domain, handles, WhatsApp number/bank/warranty days,
-      order pilot unit
+## Deploy
+Push to main → GitHub Pages builds automatically (~1 min).
+No build step; static files served from the repo root.
 
-## Karabo's to-fill list (search [BRACKETS] in docs)
-- ✅ WhatsApp: 064 792 8206
-- ✅ Bank: TymeBank / GoTyme · Mokgotho Projects · 53000435272 (Current) — on invoice only
-- ✅ City: Mokopane
-- Warranty days ([XX]-day — recommend 14–30; leave blank until decided)
-- Handle variants actually available
-- Domain: techbench.co.za
+© TechBench — we verify, we test, we deliver.

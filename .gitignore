@@ -1,0 +1,8 @@
+# Sensitive playbook dirs — NEVER tracked in this public repo.
+# Business docs live in the private techbench-ops repo.
+research/
+content/
+assets/
+docs/*.md
+v2-roadmap.md
+PROMPT-website-builder.md
