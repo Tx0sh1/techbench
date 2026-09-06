@@ -3,6 +3,8 @@
 research/
 content/
 assets/
+!store/assets/
+!store/assets/og-cover.png
 docs/*.md
 v2-roadmap.md
 PROMPT-website-builder.md
