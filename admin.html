@@ -66,6 +66,15 @@
   .status-pill { font-size:11px; font-weight:700; }
   #preview-changes { font-size:12.5px; color:#cbd5e1; }
   .import-hint { font-size:12px; color:var(--muted); margin-top:6px; }
+
+  .bench-wizard { margin-top: 12px; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; background: #fff; }
+  .bench-wizard label { margin-top: 0; }
+  .bw-hint { font-weight: 400; color: var(--muted); }
+  .bench-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; margin-top: 6px; }
+  .bw-check { display: flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 400; cursor: pointer; margin: 0; color: var(--ink); }
+  .bw-check input { width: auto; accent-color: var(--bench); }
+  .bw-group { font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--bench); grid-column: 1/-1; margin: 8px 0 2px; }
+  @media (max-width: 640px) { .bench-checks { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -73,7 +82,7 @@
 <header>
   <div class="brand">🛠️ Tech<span><b>Bench</b></span> Admin</div>
   <div class="hdr-links">
-    <a href="store/" target="_blank" rel="noopener">View store ↗</a>
+    <a href="./" target="_blank" rel="noopener">View store ↗</a>
     <a href="javascript:void(0)" id="btn-clear-token" title="Forget the saved token">Clear token</a>
   </div>
 </header>
@@ -82,7 +91,7 @@
   <!-- TOKEN GATE -->
   <section class="card" id="card-token">
     <h2><span class="dot" id="dot-token"></span> GitHub access token</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">The admin reads &amp; writes <b>store/js/data.js</b> in your techbench repo through the GitHub API. Paste your fine-grained PAT below (scoped to the <b>Tx0sh1/techbench</b> repo only, Contents: Read &amp; write). It is stored ONLY in this browser (localStorage) — never in the repo.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">The admin reads &amp; writes <b>js/data.js</b> in your techbench repo through the GitHub API. Paste your fine-grained PAT below (scoped to the <b>Tx0sh1/techbench</b> repo only, Contents: Read &amp; write). It is stored ONLY in this browser (localStorage) — never in the repo.</p>
     <div class="token-row">
       <input type="password" id="token-input" placeholder="github_pat_…" autocomplete="off" spellcheck="false">
       <button class="btn btn-main" id="btn-token">Connect</button>
@@ -92,7 +101,7 @@
 
   <!-- STOCK MANAGER -->
   <section class="card hidden" id="card-stock">
-    <h2>Stock — store/js/data.js</h2>
+    <h2>Stock — js/data.js</h2>
     <div id="stock-list"></div>
     <button class="btn btn-main" id="btn-add">+ Add product</button>
     <button class="btn btn-ghost" id="btn-reload" style="margin-left:8px;">↻ Reload from GitHub</button>
@@ -123,14 +132,14 @@
 
 <script>
 /* ============================================================
-   TechBench Admin — GitHub-API CMS for store/js/data.js
+   TechBench Admin — GitHub-API CMS for js/data.js
    Read:  GET  /repos/{owner}/{repo}/contents/{path}
    Write: PUT  /repos/{owner}/{repo}/contents/{path}  (needs sha)
    We only regenerate the PRODUCTS array — the file's head
    (comment + WA_NUMBER) and tail (CATEGORIES + GRADES) are
    preserved byte-for-byte.
    ============================================================ */
-const REPO = { owner: "Tx0sh1", repo: "techbench", path: "store/js/data.js" };
+const REPO = { owner: "Tx0sh1", repo: "techbench", path: "js/data.js" };
 const API = "https://api.github.com";
 const TOKEN_KEY = "techbench_admin_token_v1";
 const LS_KEY = "techbench_admin_draft_v1"; // nothing sensitive: draft state only
@@ -302,7 +311,7 @@ let editingIdx = null;
 function openModal(p) {
   editingIdx = p ? products.indexOf(p) : null;
   $("modal-title").textContent = p ? "Edit " + p.model : "Add product";
-  $("modal-sub").textContent = p ? (p.unit || "") + " — changes staged until you publish" : "Fill in or paste from the Bench Console (ops/tools/bench-report.html).";
+  $("modal-sub").textContent = p ? (p.unit || "") + " — changes staged until you publish" : "Bench checklist built in — pick the category, tick what passed, fill the details.";
   $("modal-body").innerHTML = `
     <div class="grid2">
       <div><label>Model *</label><input id="m-model" value="${esc(p?.model || "")}" placeholder="iPhone 12"></div>
@@ -325,13 +334,21 @@ function openModal(p) {
     </div>
     <div><label>Tagline</label><input id="m-tagline" value="${esc(p?.tagline || "")}" placeholder="Excellent A-grade — micro-scratches only"></div>
     <div><label>Description / honest notes</label><textarea id="m-desc" rows="3" placeholder="Grade means…">${esc(p?.description || "")}</textarea></div>
-    <div><label>Bench checks — one per line (only PASSED ones)</label><textarea class="bench-lines" id="m-bench" placeholder="Screen &amp; touch — no dead pixels&#10;Face ID — enrolled &amp; working">${esc((p?.bench || []).join("\n"))}</textarea></div>
-    <div><label>Bench date</label><input id="m-date" type="date" value="${esc(p?.benchDate || "")}"></div>
-    <div><label>Photo path (optional — drop a JPG in store/assets/photos/)</label><input id="m-photo" value="${esc(p?.photo || "")}" placeholder="assets/photos/iphone-12-01.jpg"></div>
+    <div class="bench-wizard">
+      <label>🧪 Bench checklist — tick what PASSED <span class="bw-hint">(only these ship in the certificate)</span></label>
+      <div id="bench-checks" class="bench-checks"></div>
+      <label style="margin-top:10px;">…or type custom checks — one per line</label>
+      <textarea class="bench-lines" id="m-bench" rows="3" placeholder="Screen &amp; touch — no dead pixels&#10;Face ID — enrolled &amp; working">${esc((p?.bench || []).join("\n"))}</textarea>
+    </div>
+    <div class="grid2">
+      <div><label>Bench date</label><input id="m-date" type="date" value="${esc(p?.benchDate || "")}"></div>
+      <div><label>Photo path (optional — drop JPG in assets/photos/)</label><input id="m-photo" value="${esc(p?.photo || "")}" placeholder="assets/photos/iphone-12-01.jpg"></div>
+    </div>
     <p class="import-hint">Pro tip: generate in the Bench Console, then paste its JSON here:</p>
     <textarea class="bench-lines" id="m-import" placeholder='Paste Bench Console JSON to auto-fill…'></textarea>
   `;
   $("modal-overlay").classList.remove("hidden");
+  bindBenchWizard(p);
   $("modal-body").querySelector("#m-import").addEventListener("input", e => {
     const txt = e.target.value.trim();
     if (!txt) return;
@@ -340,6 +357,108 @@ function openModal(p) {
       if (obj && typeof obj === "object") { fillForm(obj); }
     } catch (_) { /* not JSON yet — wait for more input */ }
   });
+}
+
+/* ---------- bench checklist wizard (Bench Console presets) ---------- */
+const BENCH_PRESETS = {
+  Phones: [
+    { g: "Identity & legitimacy" },
+    { t: "IMEI matches Settings ( *#06# )" },
+    { t: "Blacklist / stolen check — clean" },
+    { t: "iCloud & Activation Lock — removed" },
+    { t: "Find My iPhone — off" },
+    { t: "Carrier unlocked" },
+    { g: "Screen & display" },
+    { t: "Screen & touch — no dead pixels, no lines" },
+    { t: "OLED burn-in check — clean" },
+    { g: "Hardware" },
+    { t: "Face ID / Touch ID — enrolled & working" },
+    { t: "Cameras (front + rear) — tested both" },
+    { t: "Speakers, mic & earpiece — call test done" },
+    { t: "Charging port + wireless — verified" },
+    { t: "WiFi / Bluetooth / Cellular — all connected" },
+    { t: "Buttons, haptics, sensors — full pass" },
+    { t: "Liquid indicators — clean" },
+    { t: "Battery drain test — normal" }
+  ],
+  Tablets: [
+    { g: "Identity & legitimacy" },
+    { t: "Serial / IMEI (cellular models) — matches" },
+    { t: "iCloud & Activation Lock — removed" },
+    { g: "Screen & hardware" },
+    { t: "Screen & touch — no dead pixels, no lines" },
+    { t: "Cameras — tested" },
+    { t: "Speakers — tested" },
+    { t: "Charging port — verified" },
+    { t: "WiFi / Bluetooth — connected" },
+    { t: "Battery health — read from Settings" },
+    { t: "Apple Pencil support — working (if applicable)" },
+    { t: "Buttons & sensors — full pass" }
+  ],
+  Consoles: [
+    { g: "Identity & security" },
+    { t: "Console storage — wiped & factory reset" },
+    { t: "Account / activation lock — clear" },
+    { g: "Hardware" },
+    { t: "Power on / off cycles — clean" },
+    { t: "Disc drive — reads Blu-ray + games" },
+    { t: "HDMI out — video verified" },
+    { t: "WiFi + Ethernet — connected" },
+    { t: "Controller — all buttons, sticks, motion" },
+    { t: "Fan noise — within normal range" },
+    { t: "Network sign-in — verified working" },
+    { t: "2hr stress test on bench" }
+  ],
+  Audio: [
+    { t: "Both buds / channels — audio output clean" },
+    { t: "Active Noise Cancellation — working" },
+    { t: "Mics — call test both sides" },
+    { t: "Case / cradle charging — verified" },
+    { t: "Battery — healthy (both sides + case)" },
+    { t: "Fresh ear tips / pads fitted (where applicable)" },
+    { t: "Firmware — updated on bench" }
+  ],
+  Laptops: [
+    { g: "Identity & security" },
+    { t: "Serial — matches chassis" },
+    { t: "Activation Lock / Find My — removed" },
+    { t: "Storage — wiped & fresh OS installed" },
+    { g: "Hardware" },
+    { t: "Screen — no dead pixels, no lines" },
+    { t: "Keyboard + trackpad — all keys tested" },
+    { t: "Webcam & mic — tested" },
+    { t: "Speakers — tested" },
+    { t: "Ports (USB-C / USB / HDMI / SD) — all verified" },
+    { t: "WiFi / Bluetooth — connected" },
+    { t: "Battery — health checked, charges" },
+    { t: "Thermals — fan runs, no overheating" }
+  ]
+};
+
+function bindBenchWizard(p) {
+  const wrap = $("bench-checks");
+  const catSel = $("m-cat");
+  const benchTa = $("m-bench");
+  const initial = new Set((benchTa.value || "").split("\n").map(s => s.trim()).filter(Boolean));
+  const preset = BENCH_PRESETS[catSel.value] || [];
+
+  wrap.innerHTML = preset.map(item =>
+    item.g
+      ? `<div class="bw-group">${item.g}</div>`
+      : `<label class="bw-check"><input type="checkbox" value="${esc(item.t)}" ${initial.has(item.t) ? "checked" : ""}> ${esc(item.t)}</label>`
+  ).join("");
+
+  // toggling a box appends/removes from the textarea (keeps custom lines too)
+  wrap.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const lines = benchTa.value.split("\n").map(s => s.trim()).filter(Boolean);
+      const others = lines.filter(l => l !== cb.value);
+      if (cb.checked) others.push(cb.value);
+      benchTa.value = others.join("\n");
+    });
+  });
+  // switching category reloads the checklist
+  catSel.addEventListener("change", () => bindBenchWizard(p), { once: true });
 }
 function fillForm(o) {
   const set = (id, v) => { const el = $(id); if (el && v !== undefined && v !== null) el.value = v; };

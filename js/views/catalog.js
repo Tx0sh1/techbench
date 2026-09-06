@@ -46,7 +46,27 @@ function renderCatalog() {
   const avail = list.filter(p => p.status === "available").length;
   const incoming = list.filter(p => p.status === "incoming").length;
 
+  const hero = (!state.search && state.category === "All") ? `
+    <div class="home-hero">
+      <div class="hh-copy">
+        <h1>Quality pre-owned tech,<br><span class="hh-accent">bench-tested before it ships.</span></h1>
+        <p>Every device runs a full test pass on our bench — real grade, real battery health, real photos, and a dated certificate for the exact unit you buy. Free delivery, 30-day warranty, one human on WhatsApp.</p>
+        <div class="hh-stats">
+          <div><b>${avail}</b><small>units on the bench now</small></div>
+          <div><b>100%</b><small>IMEI &amp; iCloud checked</small></div>
+          <div><b>30-day</b><small>written warranty</small></div>
+        </div>
+      </div>
+      <div class="hh-trust">
+        <div class="trust-card"><span class="tc-ic">🛡️</span><div><b>No stolen or locked stock</b><small>Blacklist + iCloud verified on every unit</small></div></div>
+        <div class="trust-card"><span class="tc-ic">🔋</span><div><b>Honest battery health</b><small>The real number, from Settings</small></div></div>
+        <div class="trust-card"><span class="tc-ic">🚚</span><div><b>Free tracked delivery</b><small>Paxi or Courier Guy, door to door</small></div></div>
+        <div class="trust-card"><span class="tc-ic">💬</span><div><b>Pay after proof</b><small>Bench report + photos before you pay</small></div></div>
+      </div>
+    </div>` : "";
+
   view.innerHTML = `
+    ${hero}
     <div class="toolbar">
       <div class="result-count"><b>${avail}</b> available${incoming ? ` · <b>${incoming}</b> incoming` : ""}${state.category !== "All" ? ` in ${state.category}` : ""}${state.search ? ` for "${state.search}"` : ""}</div>
       <select class="sort-select" id="sort-select" aria-label="Sort products">

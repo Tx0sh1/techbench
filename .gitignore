@@ -1,10 +1,5 @@
-# Sensitive playbook dirs — NEVER tracked in this public repo.
-# Business docs live in the private techbench-ops repo.
-research/
-content/
-assets/
-!store/assets/
-!store/assets/og-cover.png
+# Public site repo — playbook material NEVER lands here.
+# (Business docs live in the private techbench-ops repo.)
 docs/*.md
 v2-roadmap.md
 PROMPT-website-builder.md

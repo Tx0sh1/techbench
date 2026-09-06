@@ -101,7 +101,7 @@ const Router = {
   current: "catalog",
 
   navigate(hash) {
-    // hash format: #/  |  #/product/ID  |  #/checkout
+    // hash format: #/  |  #/product/ID  |  #/checkout  |  #/guide | #/faq | #/how
     const clean = (hash || "").replace(/^#\/?/, "");
     const parts = clean.split("/").filter(Boolean);
 
@@ -111,6 +111,9 @@ const Router = {
     } else if (parts[0] === "checkout") {
       this.current = "checkout";
       renderCheckout();
+    } else if (parts[0] === "guide" || parts[0] === "faq" || parts[0] === "how") {
+      this.current = parts[0];
+      renderContent(parts[0]);
     } else {
       this.current = "catalog";
       renderCatalog();

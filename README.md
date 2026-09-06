@@ -1,19 +1,26 @@
-# TechBench — Website
+# TechBench — Website (single product)
 
 Quality used tech, bench-tested before it ships. South Africa.
-Live: https://tx0sh1.github.io/techbench/ · WhatsApp: 064 792 8206
+Live: https://tx0sh1.github.io/techbench/ · Target domain: **techbench.co.za** · WhatsApp: 064 792 8206
 
-## What's in this repo
-This repo holds ONLY the public website (one-pager + customer legal pages).
-The business playbook (pricing, margins, suppliers, research) lives in a
-private repo — this one intentionally has no commercial data.
+## Structure — one product, two faces
 
-- index.html — the one-pager (7-day written warranty, FAQ, contact)
-- docs/terms.html — Terms of Sale
-- docs/warranty.html — Warranty & Returns policy
+```
+index.html   ← THE STORE (public): catalog + filters/search, product pages
+                 with bench certificates, cart, WhatsApp checkout, buyer's
+                 guide + FAQ pages (#/guide #/faq #/how)
+admin.html   ← YOUR COCKPIT (token-gated): stock manager + bench console
+                 wizard. GitHub-API CMS — edits commit straight to this repo.
+js/data.js   ← product catalog (add/change stock — admin does this for you)
+docs/        ← public legal pages: terms.html, warranty.html
+```
 
 ## Deploy
-Push to main → GitHub Pages builds automatically (~1 min).
-No build step; static files served from the repo root.
+Push to main → GitHub Pages builds automatically (~1 min). No build step.
+Custom domain later: DNS CNAME techbench.co.za → tx0sh1.github.io + Pages setting.
+
+## Ownership
+This repo holds ONLY the public website. The business playbook (pricing,
+suppliers, margins) lives in the private techbench-ops repo — never here.
 
 © TechBench — we verify, we test, we deliver.
