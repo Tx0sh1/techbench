@@ -1,5 +1,7 @@
 /* ============================================================
    TechBench Store — PRODUCT DETAIL VIEW
+   Trust stack: unit serial, bench certificate w/ print,
+   grading explainer, CheckMend verification link, photos.
    ============================================================ */
 
 function renderProduct(id) {
@@ -15,21 +17,43 @@ function renderProduct(id) {
   const incoming = p.status === "incoming";
 
   const waEnquiry = waLink(`Hi TechBench, I'm interested in the ${p.model}${p.storage ? " " + p.storage : ""} (${p.color || ""}) — ${isAvail ? zar(p.price) : ""}`);
-  const waReport = waLink(`Hi TechBench, please send the bench report + photos for the ${p.model}`);
+  const waReport = waLink(`Hi TechBench, please send the bench report + photos for the ${p.model} (Unit ${p.unit || ""})`);
 
   const specRows = Object.entries(p.specs || {})
     .map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("");
 
-  const benchHTML = (p.bench && p.bench.length)
-    ? `<div class="d-section">
-         <h3><span class="tick">✓</span> Bench test report — ${p.bench.length} checks passed</h3>
-         <div class="bench-list">${p.bench.map(b => `<div><span class="ok">✓</span> ${b}</div>`).join("")}</div>
-       </div>`
-    : "";
+  // ---- Bench certificate (visible trust block) ----
+  const benchChecks = p.bench && p.bench.length;
+  const benchHTML = benchChecks ? `
+    <div class="d-section cert" id="bench-cert">
+      <div class="cert-head">
+        <div>
+          <h3 style="margin:0 0 2px;"><span class="tick">✓</span> Bench Certificate</h3>
+          <div class="cert-unit">Unit <b>${p.unit || "—"}</b> · Tested ${p.benchDate ? new Date(p.benchDate).toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" }) : "—"} · TechBench, South Africa</div>
+        </div>
+        <span class="cert-stamp">PASSED ✓</span>
+      </div>
+      <div class="bench-list">${p.bench.map(b => `<div><span class="ok">✓</span> ${b}</div>`).join("")}</div>
+      <div class="cert-foot">
+        <span>${p.bench.length} of ${p.bench.length} checks passed on the TechBench workbench</span>
+        <button class="btn btn-ghost btn-small" id="cert-print">🖨️ Print / save certificate</button>
+      </div>
+    </div>` : (p.status === "sold"
+      ? `<div class="d-section cert"><div class="cert-head"><div><h3 style="margin:0;">✓ Bench Certificate</h3><div class="cert-unit">Unit ${p.unit || "—"} · Tested ${p.benchDate || "—"} · passed full bench test before shipping</div></div><span class="cert-stamp" style="background:var(--green);color:#fff;">SOLD ✓</span></div></div>`
+      : `<div class="d-section cert"><div class="cert-head"><div><h3 style="margin:0;">🔜 Bench Certificate pending</h3><div class="cert-unit">Unit ${p.unit || "—"} will be bench-tested when it lands — report published here before it's listed.</div></div></div></div>`);
+
+  // ---- Grading explainer trigger ----
+  const gradeExplain = GRADES[p.grade] ? `
+    <button class="grade-link" id="grade-info">ℹ️ What does "${gradeLabel(p.grade)}" mean?</button>` : "";
 
   const notesHTML = p.notes ? `<div class="d-section"><div class="d-notes">📌 ${p.notes}</div></div>` : "";
 
   const savePct = p.was ? Math.round((1 - p.price / p.was) * 100) : 0;
+
+  // ---- Photo or emoji visual ----
+  const visual = p.photo
+    ? `<img src="${p.photo}" alt="${p.model}" class="detail-photo">`
+    : `<span class="big-emoji">${p.emoji}</span>`;
 
   const actions = isAvail ? `
     <div class="d-actions">
@@ -39,7 +63,7 @@ function renderProduct(id) {
         Enquire on WhatsApp
       </a>
     </div>
-    <button class="btn btn-ghost btn-block" id="d-report">📋 Request full bench report + photos</button>`
+    <button class="btn btn-ghost btn-block" id="d-report">📋 Request full bench report + real photos</button>`
   : sold ? `<div class="d-actions"><a class="btn btn-wa btn-block" href="${waLink("Hi TechBench, is the " + p.model + " sold? Do you have a similar unit coming in?")}">This unit sold — ask about similar</a></div>`
   : `<div class="d-actions"><a class="btn btn-wa btn-block" href="${waLink("Hi TechBench, notify me when the " + p.model + " lands on the bench")}">🔔 Notify me when it lands</a></div>`;
 
@@ -53,8 +77,10 @@ function renderProduct(id) {
         <div class="detail-badges">
           <span class="p-grade ${gradeClass(p.grade)}" style="position:static;">${gradeLabel(p.grade)}</span>
           ${p.battery ? `<span class="p-grade" style="position:static;background:rgba(255,255,255,.14);color:#fff;">🔋 ${p.battery}%</span>` : ""}
+          ${p.unit ? `<span class="p-grade" style="position:static;background:rgba(255,255,255,.14);color:#fff;">🔧 ${p.unit}</span>` : ""}
         </div>
-        <span class="big-emoji">${p.emoji}</span>
+        ${visual}
+        ${gradeExplain}
       </div>
       <div class="detail-info">
         <h1>${p.model}${p.storage ? " · " + p.storage : ""}</h1>
@@ -66,7 +92,7 @@ function renderProduct(id) {
             ${savePct ? `<span class="d-save">SAVE ${savePct}%</span>` : ""}
           ` : sold ? `<span class="d-price" style="color:var(--muted);">Sold</span>` : `<span class="d-price">Coming soon</span>`}
         </div>
-        ${isAvail ? `<div class="d-free">✓ Free door-to-door delivery · 30-day warranty · IMEI &amp; iCloud verified</div>` : ""}
+        ${isAvail ? `<div class="d-free">✓ Free door-to-door delivery · 30-day warranty · IMEI &amp; iCloud verified · <a href="https://www.checkmend.com/za/" target="_blank" rel="noopener" style="color:var(--bench);text-decoration:underline;">CheckMend check on request</a></div>` : ""}
         ${actions}
         <div class="d-section">
           <p style="font-size:14.5px;color:var(--muted);">${p.description || ""}</p>
@@ -80,7 +106,7 @@ function renderProduct(id) {
       </div>
     </div>`;
 
-  // bind
+  // bind: add to cart
   const addBtn = document.getElementById("d-add");
   if (addBtn) {
     addBtn.addEventListener("click", () => {
@@ -90,10 +116,34 @@ function renderProduct(id) {
       setTimeout(() => { addBtn.innerHTML = ICON_CART + " Add to cart"; addBtn.style.background = ""; }, 1400);
     });
   }
+  // bind: bench report request
   const reportBtn = document.getElementById("d-report");
   if (reportBtn) {
-    reportBtn.addEventListener("click", () => {
-      window.open(waReport, "_blank");
+    reportBtn.addEventListener("click", () => { window.open(waReport, "_blank"); });
+  }
+  // bind: print certificate
+  const certPrint = document.getElementById("cert-print");
+  if (certPrint) {
+    certPrint.addEventListener("click", () => window.print());
+  }
+  // bind: grade explainer → simple modal
+  const gradeBtn = document.getElementById("grade-info");
+  if (gradeBtn) {
+    gradeBtn.addEventListener("click", () => {
+      const gradeKey = p.grade;
+      const text = GRADES[gradeKey] || GRADES.A;
+      const modal = document.createElement("div");
+      modal.className = "modal-wrap";
+      modal.innerHTML = `
+        <div class="modal-card">
+          <button class="modal-close" aria-label="Close">✕</button>
+          <h3>${gradeLabel(p.grade)} grade at TechBench</h3>
+          <p style="color:var(--muted);line-height:1.6;">${text}</p>
+          <a class="btn btn-wa btn-block" href="${waLink("Hi TechBench, can you send me the real photos of the " + p.model + "?")}" target="_blank" rel="noopener">📷 See real photos on WhatsApp</a>
+        </div>`;
+      document.body.appendChild(modal);
+      modal.querySelector(".modal-close").addEventListener("click", () => modal.remove());
+      modal.addEventListener("click", e => { if (e.target === modal) modal.remove(); });
     });
   }
 }

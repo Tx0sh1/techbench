@@ -8,12 +8,18 @@
 
    status: "available" | "incoming" | "sold"
    category: "Phones" | "Tablets" | "Consoles" | "Audio" | "Laptops"
+   unit: "TB-0001"         <- unique unit serial (bench cert number)
+   benchDate: "2026-09-05" <- date the unit passed the bench
+   photo: "assets/photos/iphone-12-01.jpg"  <- set this to show a real photo
    ============================================================ */
-const WA_NUMBER = "27XXXXXXXXX"; // <-- YOUR WhatsApp number (intl format, no +)
+const WA_NUMBER = "27647928206"; // TechBench WhatsApp (intl, no +) — 064 792 8206
 
 const PRODUCTS = [
   {
     id: "iphone-12-128-a",
+    unit: "TB-0001",
+    benchDate: "2026-09-05",
+    photo: "",
     model: "iPhone 12",
     storage: "128GB",
     category: "Phones",
@@ -54,6 +60,9 @@ const PRODUCTS = [
   },
   {
     id: "iphone-11-128-b",
+    unit: "TB-0002",
+    benchDate: "2026-08-28",
+    photo: "",
     model: "iPhone 11",
     storage: "128GB",
     category: "Phones",
@@ -80,6 +89,9 @@ const PRODUCTS = [
   },
   {
     id: "iphone-se-2022-64-a",
+    unit: "TB-0003",
+    benchDate: "2026-09-06",
+    photo: "",
     model: "iPhone SE (2022)",
     storage: "64GB",
     category: "Phones",
@@ -115,6 +127,9 @@ const PRODUCTS = [
   },
   {
     id: "ipad-9-64-a",
+    unit: "TB-0004",
+    benchDate: "2026-09-04",
+    photo: "",
     model: "iPad (9th gen)",
     storage: "64GB",
     category: "Tablets",
@@ -150,6 +165,9 @@ const PRODUCTS = [
   },
   {
     id: "ps4-slim-500-b",
+    unit: "TB-0005",
+    benchDate: "2026-09-03",
+    photo: "",
     model: "PS4 Slim",
     storage: "500GB",
     category: "Consoles",
@@ -186,6 +204,9 @@ const PRODUCTS = [
   },
   {
     id: "switch-lite-turquoise-a",
+    unit: "TB-0006",
+    benchDate: "2026-09-02",
+    photo: "",
     model: "Nintendo Switch Lite",
     storage: "32GB",
     category: "Consoles",
@@ -220,6 +241,9 @@ const PRODUCTS = [
   },
   {
     id: "airpods-pro-1-b",
+    unit: "TB-0007",
+    benchDate: "2026-09-06",
+    photo: "",
     model: "AirPods Pro (1st gen)",
     storage: "",
     category: "Audio",
@@ -252,6 +276,9 @@ const PRODUCTS = [
   },
   {
     id: "incoming-macbook-air",
+    unit: "TB-0008",
+    benchDate: null,
+    photo: "",
     model: "MacBook Air M1",
     storage: "256GB",
     category: "Laptops",
@@ -272,3 +299,11 @@ const PRODUCTS = [
 ];
 
 const CATEGORIES = ["All", "Phones", "Tablets", "Consoles", "Audio", "Laptops"];
+
+/* Grade guide — shown in product view "What does this grade mean?" */
+const GRADES = {
+  A: "A-grade is the best we sell: light to zero visible wear, screen pristine, battery strong. You may find micro-scratches if you hunt for them — we photograph everything honestly before you pay.",
+  B: "B-grade is fully functional with honest signs of use: visible scuffs, light scratches, maybe a worn battery. Every B-grade unit passes the same full bench test as A — nothing is broken, it's just not showroom-new.",
+  C: "C-grade is for budget hunters: clear wear and tear, but fully working after our repair bench. Every C-grade unit is listed with its exact faults and what we fixed.",
+  incoming: "On its way to us or still on the bench. Join the waitlist and you'll get first refusal when it's tested and listed."
+};

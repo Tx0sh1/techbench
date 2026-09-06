@@ -109,16 +109,21 @@ function cardHTML(p) {
       ? `<a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi TechBench, notify me when the " + p.model + " lands")}" class="p-add" style="text-decoration:none;background:var(--orange);font-size:16px;">🔔</a>`
       : "";
 
+  const visualContent = p.photo
+    ? `<img src="${p.photo}" alt="${p.model}" class="card-photo" loading="lazy">`
+    : `<span class="p-emoji">${p.emoji}</span>`;
+
   return `
     <div class="p-card ${sold ? "sold" : ""} ${isIncoming ? "incoming" : ""}" data-product="${p.id}">
       <div class="p-visual">
         <span class="p-cat">${p.category}</span>
         <span class="p-grade ${gradeClass(p.grade)}">${gradeLabel(p.grade)}</span>
-        <span class="p-emoji">${p.emoji}</span>
+        ${visualContent}
       </div>
       <div class="p-body">
         <div class="p-title">${p.model}${p.storage ? " · " + p.storage : ""}</div>
         <div class="p-sub">${p.tagline || (p.color ? p.color : "")}</div>
+        <div class="p-unit">${p.unit ? `🔧 Unit ${p.unit} · bench-tested` : ""}</div>
         ${specsHTML ? `<div class="p-specs">${specsHTML}</div>` : ""}
         <div class="p-bottom">
           <div class="p-price">

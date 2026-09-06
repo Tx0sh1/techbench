@@ -416,3 +416,86 @@ img { max-width: 100%; display: block; }
   .p-specs { display: none; }
   .store-footer .f-grid { grid-template-columns: 1fr; gap: 20px; }
 }
+
+/* ============================================================
+   Trust stack additions — bench certificate, grades, modal,
+   photos, unit serials, print view
+   ============================================================ */
+
+/* unit serial line under card title */
+.p-unit { font-size: 11px; color: var(--muted); margin: 2px 0 6px; letter-spacing: .02em; }
+
+/* real photo on cards */
+.card-photo {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+}
+.p-visual .card-photo { position: absolute; inset: 0; border-radius: 14px 14px 0 0; }
+
+/* detail photo */
+.detail-photo {
+  width: 100%; max-height: 340px; object-fit: cover;
+  border-radius: 16px; display: block;
+}
+
+/* bench certificate block */
+.cert {
+  border: 1.5px solid rgba(228,87,46,.25);
+  background: linear-gradient(180deg, rgba(228,87,46,.05), transparent 60%);
+  border-radius: 14px; padding: 16px 18px;
+}
+.cert-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cert-unit { font-size: 12px; color: var(--muted); }
+.cert-stamp {
+  flex-shrink: 0; font-weight: 800; font-size: 12px; letter-spacing: .08em;
+  color: var(--green); border: 2px solid var(--green);
+  padding: 5px 10px; border-radius: 8px; transform: rotate(-4deg);
+}
+.cert-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-top: 12px; font-size: 12px; color: var(--muted);
+  flex-wrap: wrap;
+}
+.btn-small { padding: 6px 12px; font-size: 12px; border-radius: 8px; }
+
+/* grade explainer link */
+.grade-link {
+  margin-top: 10px; background: none; border: none; cursor: pointer;
+  color: var(--bench); font-size: 12.5px; text-decoration: underline;
+  font-family: inherit;
+}
+
+/* modal */
+.modal-wrap {
+  position: fixed; inset: 0; background: rgba(10,12,14,.66);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999; padding: 20px;
+  animation: fadeIn .18s ease;
+}
+.modal-card {
+  background: var(--paper); color: var(--ink);
+  border-radius: 18px; max-width: 440px; width: 100%;
+  padding: 26px; position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,.4);
+  animation: popIn .2s ease;
+}
+.modal-card h3 { margin: 0 0 10px; }
+.modal-close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none; font-size: 18px;
+  cursor: pointer; color: var(--muted);
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* print: only show the certificate */
+@media print {
+  body * { visibility: hidden !important; }
+  #bench-cert, #bench-cert * { visibility: visible !important; }
+  #bench-cert {
+    position: absolute; left: 0; top: 0; width: 100%;
+    border: 2px solid #1a1d21 !important; background: #fff !important;
+  }
+  .cert-stamp { color: #1a1d21 !important; border-color: #1a1d21 !important; }
+  .btn { display: none !important; }
+}

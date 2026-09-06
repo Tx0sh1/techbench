@@ -86,4 +86,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ---------- expose for devtools/testing ---------- */
-window.TB = { Cart, Router, state, PRODUCTS, CATEGORIES, zar };
+window.TB = { Cart, Router, state, PRODUCTS, CATEGORIES, GRADES, zar };
