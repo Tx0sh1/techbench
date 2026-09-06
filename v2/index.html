@@ -3,528 +3,1149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TechBench — South Africa's bench-certified pre-owned tech. Every unit passes a 32-point workshop test before it ships.">
+<title>TechBench SA — Bench-Tested Pre-Owned iPhones & Tech | Free Delivery, Warranty</title>
+<meta name="description" content="TechBench sells quality pre-owned iPhones and tech in South Africa. Every device is bench-tested, IMEI & iCloud verified, graded honestly with real photos. Free delivery, warranty included, secure EFT payment.">
+<meta name="keywords" content="used iPhones South Africa, refurbished iPhone, buy second hand iPhone SA, bench tested phones, TechBench">
 <meta name="theme-color" content="#1a1d21">
-<title>TechBench — Quality pre-owned tech, bench-tested before it ships</title>
-</head>
+<meta property="og:title" content="TechBench SA — Bench-Tested Pre-Owned Tech">
+<meta property="og:description" content="Quality pre-owned iPhones, bench-tested before they ship. IMEI verified, honest grades, free delivery, warranty included.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tx0sh1.github.io/techbench/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23e4572e'/><text x='50' y='68' font-size='52' font-weight='bold' font-family='Arial' fill='white' text-anchor='middle'>TB</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --ink: #14171b;
+    --ink-2: #1e2329;
+    --paper: #f6f5f2;
+    --paper-2: #ffffff;
+    --orange: #e4572e;
+    --orange-dark: #c7441f;
+    --orange-soft: #fdeee8;
+    --steel: #2e353b;
+    --muted: #626d76;
+    --line: #e4e1da;
+    --green: #25D366;
+    --green-dark: #1da851;
+    --shadow-sm: 0 2px 8px rgba(20,23,27,.06);
+    --shadow-md: 0 8px 28px rgba(20,23,27,.10);
+    --shadow-lg: 0 20px 60px rgba(20,23,27,.16);
+    --radius: 14px;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-:root{
-  --bench:#e4572e;
-  --ink:#1a1d21;
-  --paper:#f7f7f5;
-  --white:#ffffff;
-  --muted:#697178;
-  --line:#dcdcdc;
-}
+  /* ============ ANNOUNCEMENT BAR ============ */
+  .announce {
+    background: var(--orange);
+    color: #fff;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 16px;
+    letter-spacing: .2px;
+  }
+  .announce a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
-*,
-*::before,
-*::after{
-  box-sizing:border-box;
-}
+  /* ============ HEADER ============ */
+  header {
+    background: rgba(20,23,27,.96);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .header-inner { display: flex; align-items: center; gap: 14px; padding: 13px 24px; max-width: 1140px; margin: 0 auto; }
+  .logo {
+    width: 42px; height: 42px; border-radius: 11px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 20px; color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(228,87,46,.35);
+  }
+  .brand-name { font-family: var(--font-display); font-size: 19px; font-weight: 700; letter-spacing: .2px; line-height: 1.15; }
+  .brand-name span { color: var(--orange); }
+  .brand-tag { font-size: 10px; color: #9aa3ab; letter-spacing: 1.6px; text-transform: uppercase; }
+  nav { margin-left: auto; display: flex; gap: 4px; align-items: center; }
+  nav a {
+    color: #c9d0d6; text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 13px; border-radius: 8px; transition: background .15s, color .15s;
+  }
+  nav a:hover { background: rgba(255,255,255,.07); color: #fff; }
+  .hamburger { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  color:var(--ink);
-  background:var(--white);
-}
+  /* ============ HERO ============ */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 88px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(700px 400px at 85% -10%, rgba(228,87,46,.20), transparent 65%),
+      radial-gradient(500px 300px at -10% 110%, rgba(37,211,102,.07), transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; position: relative; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--orange);
+    font-size: 11.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase;
+    background: rgba(228,87,46,.12);
+    border: 1px solid rgba(228,87,46,.35);
+    padding: 7px 16px; border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .eyebrow .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+  .hero h1 {
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.06;
+    max-width: 620px;
+  }
+  .hero h1 .hl { color: var(--orange); position: relative; }
+  .hero .sub {
+    color: #aeb8c0;
+    font-size: 17px;
+    max-width: 520px;
+    margin: 22px 0 0;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    padding: 14px 26px;
+    border-radius: 11px;
+    font-weight: 700; font-size: 15px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform .15s, box-shadow .15s, background .15s;
+    font-family: var(--font-body);
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-orange { background: var(--orange); color: #fff; box-shadow: 0 8px 24px rgba(228,87,46,.35); }
+  .btn-orange:hover { background: var(--orange-dark); }
+  .btn-wa { background: var(--green); color: #062b14; box-shadow: 0 8px 24px rgba(37,211,102,.25); }
+  .btn-wa:hover { background: #1fbf5a; }
+  .btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.25); }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.05); }
+  .btn svg { width: 18px; height: 18px; }
+  .hero-trust {
+    display: flex; flex-wrap: wrap; gap: 10px 26px;
+    margin-top: 38px;
+    font-size: 13.5px; color: #8b959e;
+    padding-bottom: 64px;
+  }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 7px; }
+  .hero-trust svg { width: 15px; height: 15px; color: var(--green); }
 
-main,
-footer{
-  display:block;
-}
-
-.content{
-  width:min(1120px, calc(100% - 2rem));
-  margin:0 auto;
-}
-
-.section{
-  padding:4.5rem 0;
-  border-top:1px solid var(--line);
-}
-
-.section--paper{
-  background:var(--paper);
-}
-
-.section-head{
-  max-width:760px;
-  margin-bottom:2rem;
-}
-
-.eyebrow{
-  display:inline-block;
-  margin-bottom:.75rem;
-  color:var(--bench);
-  font-size:.85rem;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.section h2{
-  margin:0 0 1rem;
-  font-size:clamp(2rem, 4vw, 3rem);
-  line-height:1.05;
-  letter-spacing:-.03em;
-}
-
-.section p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.65;
-}
-
-.steps{
-  display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:1rem;
-  margin:0;
-  padding:0;
-  list-style:none;
-  counter-reset:step;
-}
-
-.step{
-  position:relative;
-  counter-increment:step;
-  padding:1.75rem 1.25rem 1.5rem;
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:18px;
-  box-shadow:0 12px 30px rgba(26,29,33,.05);
-}
-
-.step::before{
-  content:counter(step, decimal-leading-zero);
-  display:grid;
-  place-items:center;
-  width:2.5rem;
-  height:2.5rem;
-  margin-bottom:1rem;
-  color:var(--bench);
-  background:rgba(228,87,46,.09);
-  border-radius:999px;
-  font-weight:900;
-  font-size:.95rem;
-}
-
-.step h3,
-.promise h3,
-.faq summary{
-  margin:0;
-  font-size:1.1rem;
-  line-height:1.25;
-}
-
-.step p{
-  margin-top:.75rem;
-  font-size:.95rem;
-}
-
-.promises{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:1rem;
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-
-.promise{
-  padding:1.75rem;
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:18px;
-  box-shadow:0 10px 24px rgba(26,29,33,.04);
-}
-
-.promise-icon{
-  display:inline-grid;
-  place-items:center;
-  width:2.75rem;
-  height:2.75rem;
-  margin-bottom:1rem;
-  color:var(--bench);
-  background:rgba(228,87,46,.1);
-  border-radius:14px;
-  font-size:1.2rem;
-  font-weight:900;
-}
-
-.promise p{
-  margin-top:.75rem;
-  font-size:.95rem;
-}
-
-.faq{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:1rem;
-}
-
-.faq-item{
-  overflow:hidden;
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:16px;
-  box-shadow:0 10px 24px rgba(26,29,33,.04);
-}
-
-.faq summary{
-  cursor:pointer;
-  padding:1.25rem 1.25rem 1.25rem 3.25rem;
-  font-weight:800;
-  list-style:none;
-}
-
-.faq summary::-webkit-details-marker{
-  display:none;
-}
-
-.faq summary::before{
-  content:"+";
-  position:absolute;
-  left:1.25rem;
-  display:grid;
-  place-items:center;
-  width:1.5rem;
-  height:1.5rem;
-  color:var(--bench);
-  font-weight:900;
-}
-
-.faq-item[open] summary::before{
-  content:"−";
-}
-
-.faq answer,
-.faq-text{
-  padding:0 1.25rem 1.25rem 3.25rem;
-}
-
-.faq answer{
-  display:block;
-  margin-top:-.25rem;
-  color:var(--muted);
-  line-height:1.65;
-}
-
-.faq details[open] summary{
-  border-bottom:1px solid var(--line);
-}
-
-.contact{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:2rem;
-  align-items:start;
-}
-
-.contact-box{
-  padding:2rem;
-  background:var(--ink);
-  color:var(--white);
-  border-radius:22px;
-}
-
-.contact-box h2{
-  margin-top:0;
-  margin-bottom:1rem;
-  color:var(--white);
-}
-
-.contact-box p{
-  color:rgba(255,255,255,.75);
-}
-
-.contact-links{
-  display:grid;
-  gap:.75rem;
-  margin-top:1.75rem;
-}
-
-.contact-link{
-  display:flex;
-  align-items:center;
-  gap:.75rem;
-  padding:.95rem 1rem;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:14px;
-  color:var(--white);
-  text-decoration:none;
-  font-weight:700;
-}
-
-.contact-link:hover,
-.contact-link:focus-visible{
-  background:rgba(255,255,255,.14);
-}
-
-.contact-label{
-  font-size:.8rem;
-  color:rgba(255,255,255,.6);
-  font-weight:800;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-
-.contact-card{
-  display:grid;
-  gap:1rem;
-}
-
-.contact-card .contact-item{
-  padding:1.25rem;
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:16px;
-  box-shadow:0 10px 24px rgba(26,29,33,.04);
-}
-
-.contact-item h3{
-  margin:0 0 .35rem;
-  font-size:1rem;
-}
-
-.contact-item p,
-.contact-item a{
-  color:var(--muted);
-  margin:0;
-  text-decoration:none;
-  font-weight:700;
-}
-
-.contact-item a:hover,
-.contact-item a:focus-visible{
-  color:var(--bench);
-  text-decoration:underline;
-}
-
-.footer{
-  padding:3rem 0 4rem;
-  background:var(--paper);
-  border-top:1px solid var(--line);
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:2rem;
-  align-items:start;
-}
-
-.footer h2{
-  margin:0 0 1rem;
-  font-size:1.4rem;
-}
-
-.footer p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.7;
-  font-size:.95rem;
-}
-
-.footer-note{
-  margin-top:1rem !important;
-  padding:1rem;
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:14px;
-}
-
-.footer-meta{
-  font-weight:800;
-}
-
-@media (max-width: 960px){
-  .steps{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
+  /* Hero phone mockup */
+  .hero-visual { position: relative; display: flex; justify-content: center; padding-bottom: 40px; }
+  .phone {
+    width: 250px; height: 505px;
+    background: linear-gradient(160deg, #2a3138, #171b20);
+    border-radius: 38px;
+    padding: 12px;
+    box-shadow: 0 40px 90px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.06);
+    position: relative;
+    transform: rotate(2deg);
+    transition: transform .4s;
+  }
+  .phone:hover { transform: rotate(0deg) translateY(-6px); }
+  .phone-notch { width: 90px; height: 22px; background: #0c0e11; border-radius: 0 0 14px 14px; margin: -2px auto 10px; }
+  .phone-screen {
+    background: linear-gradient(180deg, #101418, #0a0c0e);
+    border-radius: 26px;
+    height: calc(100% - 40px);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .phone-status { display: flex; justify-content: space-between; padding: 14px 18px 4px; font-size: 10px; color: #8a949c; }
+  .phone-hero { text-align: center; padding: 22px 16px 10px; }
+  .phone-hero .p-img {
+    width: 74px; height: 74px; border-radius: 50%;
+    background: linear-gradient(135deg, #3a434c, #242a30);
+    margin: 0 auto 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    border: 2px solid rgba(255,255,255,.08);
+  }
+  .phone-hero .p-title { color: #fff; font-weight: 700; font-size: 13px; font-family: var(--font-display); }
+  .phone-hero .p-sub { color: #6e7880; font-size: 9.5px; margin-top: 2px; }
+  .phone-stats { padding: 10px 16px; display: grid; gap: 7px; }
+  .p-row { display: flex; justify-content: space-between; font-size: 10px; color: #9aa4ab; align-items: center; }
+  .p-row b { color: #e8ebed; font-size: 10.5px; }
+  .p-bar { height: 4px; background: #232930; border-radius: 3px; flex: 1; margin: 0 8px; overflow: hidden; }
+  .p-bar i { display: block; height: 100%; border-radius: 3px; }
+  .p-bar .b-batt { width: 88%; background: linear-gradient(90deg, var(--green), #6ee7a0); }
+  .p-bar .b-health { width: 92%; background: linear-gradient(90deg, var(--orange), #f09470); }
+  .phone-badge {
+    position: absolute; right: -18px; bottom: 30px;
+    background: var(--green); color: #062b14;
+    font-weight: 800; font-size: 11px;
+    padding: 9px 15px; border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(37,211,102,.35);
+    transform: rotate(-4deg);
+    font-family: var(--font-display);
+  }
+  .phone-badge-2 {
+    position: absolute; left: -22px; top: 90px;
+    background: var(--paper); color: var(--ink);
+    font-weight: 700; font-size: 10.5px;
+    padding: 8px 13px; border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: 6px;
+    transform: rotate(3deg);
+  }
+  .phone-badge-2 .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; }
+  .float-chip {
+    position: absolute; top: 40px; right: -8px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+    color: #cfd6db; font-size: 10.5px; font-weight: 600;
+    padding: 7px 13px; border-radius: 999px;
+    backdrop-filter: blur(6px);
   }
 
-  .contact,
-  .footer-grid{
-    grid-template-columns:1fr;
+  /* ============ LOGO STRIP ============ */
+  .logostrip {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
   }
-}
+  .logostrip .wrap { display: flex; flex-wrap: wrap; gap: 12px 36px; justify-content: center; align-items: center; }
+  .logostrip-item { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--muted); font-weight: 600; }
+  .logostrip-item svg { width: 22px; height: 22px; color: var(--orange); }
+  .logostrip-item.wa svg { color: var(--green); }
 
-@media (max-width: 640px){
-  .section{
-    padding:3.25rem 0;
+  /* ============ SECTIONS ============ */
+  section { padding: 84px 0; }
+  section.alt { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  section.dark { background: var(--ink); color: #fff; }
+  .kicker {
+    color: var(--orange);
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
   }
+  .kicker::before { content: ""; width: 26px; height: 2px; background: var(--orange); display: inline-block; }
+  .kicker.center { justify-content: center; }
+  .kicker.center::after { content: ""; width: 26px; height: 2px; background: var(--orange); display: inline-block; }
+  .sec-head { max-width: 680px; margin-bottom: 48px; }
+  .sec-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  h2.sec-title { font-size: clamp(28px, 3.6vw, 40px); font-weight: 700; letter-spacing: -.8px; }
+  .sec-sub { color: var(--muted); font-size: 16px; margin-top: 14px; }
+  section.dark .sec-sub { color: #9aa4ab; }
 
-  .steps,
-  .promises,
-  .faq{
-    grid-template-columns:1fr;
+  /* ============ STOCK ============ */
+  .stock-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 28px; }
+  .stock-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column;
+    position: relative;
   }
-}
+  .stock-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+  .stock-card.sold { opacity: .72; }
+  .stock-card.sold::after {
+    content: "SOLD"; position: absolute; top: 14px; right: -38px;
+    background: var(--steel); color: #fff;
+    font-weight: 800; font-size: 12px; letter-spacing: 2px;
+    padding: 5px 46px; transform: rotate(38deg);
+  }
+  .card-visual {
+    height: 190px;
+    background:
+      radial-gradient(300px 140px at 80% 0%, rgba(228,87,46,.25), transparent 60%),
+      linear-gradient(150deg, #242b31, #161a1e);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-visual .device-emoji { font-size: 68px; filter: drop-shadow(0 12px 24px rgba(0,0,0,.4)); }
+  .card-visual .cond-tag {
+    position: absolute; top: 14px; left: 14px;
+    background: rgba(0,0,0,.55); backdrop-filter: blur(6px);
+    color: #fff; font-size: 11px; font-weight: 700;
+    padding: 5px 12px; border-radius: 999px;
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--font-display); letter-spacing: .5px;
+  }
+  .card-visual .cond-tag .gdot { width: 7px; height: 7px; border-radius: 50%; }
+  .card-visual .cond-tag .gA { background: var(--green); }
+  .card-visual .cond-tag .gB { background: #f5b942; }
+  .card-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+  .card-title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  .stock-card h3 { font-size: 19px; font-weight: 700; }
+  .stock-card .model-sub { color: var(--muted); font-size: 13px; }
+  .price-big { text-align: right; }
+  .price-big .amount { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--ink); }
+  .price-big .was { font-size: 13px; color: #b0a89e; text-decoration: line-through; display: block; }
+  .spec-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7px 14px;
+    margin: 18px 0; padding: 14px 0;
+    border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line);
+  }
+  .spec { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); }
+  .spec svg { width: 14px; height: 14px; color: var(--green); flex-shrink: 0; }
+  .spec b { color: var(--ink); font-weight: 600; }
+  .card-ctas { display: flex; flex-direction: column; gap: 9px; margin-top: auto; }
+  .card-ctas .btn { width: 100%; padding: 12px; font-size: 14px; }
+  .btn-wa-sm { background: var(--green); color: #062b14; }
+  .btn-outline { background: transparent; border: 1.5px solid var(--line); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+  .stock-footnote { margin-top: 28px; text-align: center; font-size: 14px; color: var(--muted); }
+  .stock-footnote a { color: var(--orange); font-weight: 600; }
 
+  /* ============ BENCH SHOWCASE ============ */
+  .bench-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .bench-copy .lead { font-size: 17px; color: var(--muted); margin-top: 16px; }
+  .bench-copy ul { list-style: none; margin-top: 22px; display: grid; gap: 13px; }
+  .bench-copy li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; }
+  .bench-copy li .ic {
+    width: 26px; height: 26px; border-radius: 8px; flex-shrink: 0;
+    background: var(--orange-soft); color: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+  }
+  .bench-copy li b { display: block; }
+  .bench-copy li span { color: var(--muted); font-size: 13.5px; }
+  .report-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);
+    padding: 26px;
+    font-family: var(--font-display);
+  }
+  .report-card .rc-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+  .report-card .rc-head h3 { font-size: 17px; }
+  .report-card .rc-head .stamp {
+    background: var(--green); color: #062b14;
+    font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+    padding: 5px 12px; border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .report-card .rc-device { display: flex; gap: 14px; align-items: center; padding: 14px; background: var(--paper); border-radius: 12px; margin-bottom: 16px; }
+  .report-card .rc-device .di { width: 44px; height: 44px; border-radius: 10px; background: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .report-card .rc-device b { display: block; font-size: 14.5px; }
+  .report-card .rc-device small { color: var(--muted); }
+  .rc-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 14px; }
+  .rc-check { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); font-family: var(--font-body); }
+  .rc-check .ok { color: var(--green); font-weight: 800; }
+  .rc-check.off .ok { color: #c8c2b8; }
+  .rc-batt { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line); }
+  .rc-batt .row { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); margin-bottom: 6px; }
+  .rc-batt .row b { color: var(--ink); }
+  .rc-batt .track { height: 8px; background: #efede7; border-radius: 6px; overflow: hidden; }
+  .rc-batt .fill { height: 100%; background: linear-gradient(90deg, var(--orange), #f09470); border-radius: 6px; }
 
-.hero{background:var(--ink,#1a1d21);color:#fff;padding:72px 0 80px;text-align:center}
-.hero h1{font-size:clamp(28px,4.5vw,44px);max-width:760px;margin:0 auto;line-height:1.15}
-.hero p{color:#c3cad0;max-width:560px;margin:16px auto 0}
-.trust-strip{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:28px;font-size:14px;color:#e6e9eb}
-.trust-strip span::before{content:"✓ ";color:var(--orange,#e4572e);font-weight:700}
-.catalog{background:#fff}
-.catalog .content{max-width:1120px;margin:0 auto;padding:0 24px}
-.stock-card{border:1px solid var(--line,#e2e0da);border-radius:12px;padding:20px;background:var(--paper,#f7f7f5);max-width:340px;margin:0 auto}
-.stock-card h3{margin:0 0 6px}
-.stock-card .meta{color:#5a666e;font-size:13px;margin:4px 0}
-.stock-card .price{font-size:22px;font-weight:800;margin:10px 0}
-.btn{display:inline-block;background:var(--orange,#e4572e);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600;border:none;cursor:pointer}
-.btn-wa{background:#25D366}
-.promises{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1120px;margin:0 auto}
-.promise{border-left:3px solid var(--orange,#e4572e);padding:6px 0 6px 16px}
-.content{max-width:1120px;margin:0 auto;padding:0 24px}
+  /* ============ STEPS ============ */
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .step-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px 22px;
+    position: relative;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 42px; font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--orange);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .step-card h3 { font-size: 16.5px; margin-bottom: 8px; }
+  .step-card p { font-size: 13.5px; color: var(--muted); }
+  .step-card .step-ic { position: absolute; top: 20px; right: 20px; width: 34px; height: 34px; border-radius: 10px; background: var(--orange-soft); display: flex; align-items: center; justify-content: center; }
+  .step-card .step-ic svg { width: 17px; height: 17px; color: var(--orange); }
 
+  /* ============ PROMISES ============ */
+  .promise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .promise-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-left: 3.5px solid var(--orange);
+    border-radius: 14px;
+    padding: 24px 22px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .promise-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+  .promise-card .pic { width: 40px; height: 40px; border-radius: 11px; background: var(--orange-soft); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .promise-card .pic svg { width: 20px; height: 20px; color: var(--orange); }
+  .promise-card h3 { font-size: 16px; margin-bottom: 6px; }
+  .promise-card p { font-size: 13.5px; color: var(--muted); }
+
+  /* ============ TESTIMONIALS ============ */
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .testi-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px;
+    position: relative;
+  }
+  .testi-card .quote-mark { font-family: Georgia, serif; font-size: 54px; color: var(--orange); line-height: 0; position: absolute; top: 30px; right: 24px; opacity: .25; }
+  .testi-card p { font-size: 14.5px; color: var(--ink); }
+  .testi-stars { color: #f5b942; letter-spacing: 2px; font-size: 15px; margin-bottom: 10px; }
+  .testi-who { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+  .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-display); }
+  .testi-who b { font-size: 14px; display: block; line-height: 1.3; }
+  .testi-who small { color: var(--muted); font-size: 12px; }
+  .testi-card.placeholder { border-style: dashed; background: transparent; }
+  .testi-card.placeholder p { color: var(--muted); font-style: italic; }
+
+  /* ============ BUYER GUIDE / SCAM ============ */
+  .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .guide-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 26px;
+    transition: transform .2s, border-color .2s;
+  }
+  .guide-card:hover { transform: translateY(-4px); border-color: rgba(228,87,46,.5); }
+  .guide-card .gic { width: 42px; height: 42px; border-radius: 12px; background: rgba(228,87,46,.15); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .guide-card .gic svg { width: 21px; height: 21px; color: var(--orange); }
+  .guide-card h3 { font-size: 16.5px; margin-bottom: 8px; color: #fff; }
+  .guide-card p { font-size: 13.5px; color: #9aa4ab; }
+  .guide-card .g-tag { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--orange); }
+
+  /* ============ FAQ ============ */
+  .faq { max-width: 780px; margin: 0 auto; }
+  .faq details {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+  .faq details[open] { border-color: rgba(228,87,46,.4); }
+  .faq summary {
+    padding: 19px 22px;
+    font-weight: 600; font-size: 15.5px;
+    cursor: pointer;
+    list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    font-family: var(--font-display);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .plus {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--orange-soft); color: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 700;
+    flex-shrink: 0;
+    transition: transform .2s, background .2s;
+  }
+  .faq details[open] summary .plus { transform: rotate(45deg); background: var(--orange); color: #fff; }
+  .faq details .a { padding: 0 22px 19px; font-size: 14.5px; color: var(--muted); }
+  .faq details .a a { color: var(--orange); }
+
+  /* ============ WAITLIST ============ */
+  .waitlist-band { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff; text-align: center; position: relative; overflow: hidden; }
+  .waitlist-band::before { content: ""; position: absolute; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,.07); top: -260px; right: -160px; }
+  .waitlist-band::after { content: ""; position: absolute; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,.06); bottom: -170px; left: -100px; }
+  .waitlist-band .wrap { position: relative; }
+  .waitlist-band h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 700; }
+  .waitlist-band p { font-size: 16px; opacity: .92; max-width: 560px; margin: 14px auto 30px; }
+  .waitlist-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 560px; margin: 0 auto; }
+  .waitlist-form input {
+    flex: 1; min-width: 220px;
+    padding: 15px 20px;
+    border: none; border-radius: 11px;
+    font-size: 15px;
+    font-family: var(--font-body);
+    outline: none;
+    box-shadow: inset 0 0 0 2px transparent;
+  }
+  .waitlist-form input:focus { box-shadow: inset 0 0 0 2px var(--ink); }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { background: #000; }
+  .waitlist-note { margin-top: 16px; font-size: 12.5px; opacity: .8; }
+
+  /* ============ CONTACT ============ */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .contact-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px;
+    text-align: center;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+  .contact-card .cic { width: 52px; height: 52px; border-radius: 15px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; }
+  .contact-card .cic svg { width: 24px; height: 24px; }
+  .contact-card .cic.wa { background: rgba(37,211,102,.13); } .contact-card .cic.wa svg { color: var(--green); }
+  .contact-card .cic.mail { background: var(--orange-soft); } .contact-card .cic.mail svg { color: var(--orange); }
+  .contact-card .cic.pin { background: rgba(46,53,59,.09); } .contact-card .cic.pin svg { color: var(--steel); }
+  .contact-card h3 { font-size: 16px; margin-bottom: 4px; }
+  .contact-card p { font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
+  .contact-card a { color: var(--orange); font-weight: 700; text-decoration: none; font-size: 14px; }
+  .contact-card a:hover { text-decoration: underline; }
+
+  /* ============ FOOTER ============ */
+  footer { background: #101317; color: #8b959e; padding: 56px 0 30px; font-size: 13.5px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px; }
+  .footer-brand .logo { margin-bottom: 14px; }
+  .footer-brand p { font-size: 13.5px; max-width: 280px; }
+  footer h4 { color: #fff; font-size: 14px; margin-bottom: 16px; font-family: var(--font-display); }
+  footer ul { list-style: none; display: grid; gap: 9px; }
+  footer ul a { color: #8b959e; text-decoration: none; font-size: 13.5px; }
+  footer ul a:hover { color: var(--orange); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding-top: 24px;
+    display: flex; flex-wrap: wrap; gap: 10px 26px;
+    justify-content: space-between;
+    font-size: 12.5px;
+  }
+  .footer-bottom a { color: #8b959e; }
+  .payment-methods { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pay-chip { border: 1px solid rgba(255,255,255,.15); border-radius: 6px; padding: 3px 10px; font-size: 10.5px; font-weight: 700; letter-spacing: .5px; color: #b7bec5; font-family: var(--font-display); }
+
+  /* ============ FLOATING WA ============ */
+  .float-wa {
+    position: fixed; bottom: 26px; right: 26px; z-index: 200;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 34px rgba(37,211,102,.45);
+    transition: transform .2s;
+    animation: wa-in .6s .8s both;
+  }
+  .float-wa:hover { transform: scale(1.1); }
+  .float-wa svg { width: 30px; height: 30px; color: #fff; }
+  .float-wa .wa-ping {
+    position: absolute; top: 0; right: 0;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--orange);
+    border: 2.5px solid var(--paper);
+    animation: pulse 2s infinite;
+  }
+  @keyframes wa-in { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
+
+  /* ============ SCROLL ANIM ============ */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero .sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas, .hero-trust { justify-content: center; }
+    .hero-visual { order: -1; }
+    .phone { width: 210px; height: 430px; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .bench-grid { grid-template-columns: 1fr; gap: 36px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 60px 0; }
+    nav { display: none; }
+    .hamburger { display: block; margin-left: auto; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .stock-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+    .announce { font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
 </style>
+</head>
 <body>
-<section class="hero">
-  <h1>Quality pre-owned tech, bench-tested before it ships</h1>
-  <p>Every device is checked, graded and prepared with care—so you can buy smarter tech with confidence.</p>
-  <div class="trust-strip">
-    <span>Every device tested</span>
-    <span>Honest grading</span>
-    <span>Free delivery</span>
-    <span>Secure payment</span>
+
+<div class="announce">🔥 First unit inbound — iPhone 12 128GB A-Grade · <a href="#stock">See it on the bench →</a></div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">TB</div>
+    <div>
+      <div class="brand-name">Tech<span>Bench</span></div>
+      <div class="brand-tag">Bench-tested pre-owned tech · South Africa</div>
+    </div>
+    <nav>
+      <a href="#stock">Stock</a>
+      <a href="#bench">The Bench</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#guide">Buyer's Guide</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobile-nav').style.display='block'">☰</button>
+  </div>
+</header>
+
+<!-- mobile nav -->
+<div id="mobile-nav" style="display:none; background:var(--ink); position:fixed; inset:0; z-index:300; padding:80px 30px;">
+  <button style="position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;" onclick="document.getElementById('mobile-nav').style.display='none'">✕</button>
+  <nav style="display:flex;flex-direction:column;gap:22px;font-size:20px;">
+    <a href="#stock" onclick="document.getElementById('mobile-nav').style.display='none'">Stock</a>
+    <a href="#bench" onclick="document.getElementById('mobile-nav').style.display='none'">The Bench</a>
+    <a href="#how" onclick="document.getElementById('mobile-nav').style.display='none'">How it works</a>
+    <a href="#reviews" onclick="document.getElementById('mobile-nav').style.display='none'">Reviews</a>
+    <a href="#guide" onclick="document.getElementById('mobile-nav').style.display='none'">Buyer's Guide</a>
+    <a href="#faq" onclick="document.getElementById('mobile-nav').style.display='none'">FAQ</a>
+    <a href="#contact" onclick="document.getElementById('mobile-nav').style.display='none'">Contact</a>
+  </nav>
+</div>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="pulse"></span> Bench open · Testing now</span>
+      <h1>Quality pre-owned tech, <span class="hl">bench-tested</span> before it ships.</h1>
+      <p class="sub">Every device passes a full physical bench test — screen, cameras, battery, Face ID, the lot — then gets an honest grade and real photos. No stories, no surprises. Just verified tech, delivered free.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="https://wa.me/27XXXXXXXXX?text=Hi%20TechBench%2C%20I%27m%20looking%20for%20a%20phone">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#stock">See current stock</a>
+      </div>
+      <div class="hero-trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Bench-tested</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> IMEI &amp; iCloud verified</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Free delivery</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> 30-day warranty</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="float-chip">iPhone 12 · A-Grade</div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-status"><span>09:41</span><span>📶 🔋 88%</span></div>
+          <div class="phone-hero">
+            <div class="p-img">📱</div>
+            <div class="p-title">iPhone 12 · 128GB</div>
+            <div class="p-sub">A-Grade · Bench Test #0042</div>
+          </div>
+          <div class="phone-stats">
+            <div class="p-row"><span>Battery health</span><div class="p-bar"><i class="b-batt"></i></div><b>88%</b></div>
+            <div class="p-row"><span>Screen test</span><div class="p-bar"><i class="b-health" style="width:100%;background:linear-gradient(90deg,var(--green),#6ee7a0)"></i></div><b>PASS</b></div>
+            <div class="p-row"><span>Face ID</span><div class="p-bar"><i class="b-health" style="width:100%;background:linear-gradient(90deg,var(--green),#6ee7a0)"></i></div><b>PASS</b></div>
+            <div class="p-row"><span>iCloud</span><div class="p-bar"><i class="b-health" style="width:100%;background:linear-gradient(90deg,var(--green),#6ee7a0)"></i></div><b>CLEAR</b></div>
+          </div>
+          <div style="margin:auto 16px 16px;background:var(--orange);color:#fff;text-align:center;padding:9px;border-radius:10px;font-size:11px;font-weight:800;font-family:var(--font-display);">R4,999 · FREE DELIVERY</div>
+        </div>
+      </div>
+      <div class="phone-badge">✓ PASSED ALL TESTS</div>
+      <div class="phone-badge-2"><span class="dot">✓</span> IMEI verified</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LOGO / TRUST STRIP ============ -->
+<div class="logostrip">
+  <div class="wrap">
+    <div class="logostrip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 3-3 3-3-3 3-3zM5 8h14v10a2 2 0 01-2 2H7a2 2 0 01-2-2V8z"/></svg> Bench-Tested</div>
+    <div class="logostrip-item wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-2.6.7.7-2.5-.2-.3A8 8 0 0112 4z"/></svg> WhatsApp Buying</div>
+    <div class="logostrip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Secure EFT</div>
+    <div class="logostrip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg> Free Delivery</div>
+    <div class="logostrip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 30-Day Warranty</div>
+    <div class="logostrip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12A9 9 0 1112 3a9 9 0 019 9z"/><path d="M9 12l2 2 4-4"/></svg> CPA Protected</div>
+  </div>
+</div>
+
+<!-- ============ STOCK ============ -->
+<section id="stock">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Current stock</div>
+      <h2 class="sec-title">On the bench now</h2>
+      <p class="sec-sub">Every listing shows the real grade, real battery health, and a bench report on request. Photos are of the actual unit — always.</p>
+    </div>
+    <div class="stock-grid">
+      <!-- STOCK CARD 1 -->
+      <div class="stock-card reveal">
+        <div class="card-visual">
+          <span class="cond-tag"><span class="gdot gA"></span> A-Grade</span>
+          <span class="device-emoji">📱</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <div>
+              <h3>iPhone 12</h3>
+              <div class="model-sub">128GB · Unlocked · Blue</div>
+            </div>
+            <div class="price-big">
+              <span class="was">R5,499</span>
+              <span class="amount">R4,999</span>
+            </div>
+          </div>
+          <div class="spec-grid">
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Battery <b>88%</b></div>
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Face ID <b>PASS</b></div>
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> IMEI <b>Clean</b></div>
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> iCloud <b>Clear</b></div>
+          </div>
+          <div class="card-ctas">
+            <a class="btn btn-wa-sm" href="https://wa.me/27XXXXXXXXX?text=Hi%20TechBench%2C%20I%27m%20interested%20in%20the%20iPhone%2012%20128GB%20-%20R4%2C999">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Enquire on WhatsApp
+            </a>
+            <a class="btn btn-outline" href="https://wa.me/27XXXXXXXXX?text=Hi%20TechBench%2C%20please%20send%20the%20bench%20report%20for%20the%20iPhone%2012">Request bench report</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOCK CARD 2 (incoming) -->
+      <div class="stock-card reveal">
+        <div class="card-visual" style="background:linear-gradient(150deg,#2a3037,#1a1e23);">
+          <span class="cond-tag" style="background:rgba(228,87,46,.85);"><span class="gdot" style="background:#fff;"></span> Incoming</span>
+          <span class="device-emoji">📦</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <div>
+              <h3>More stock landing</h3>
+              <div class="model-sub">iPhones · iPads · Consoles</div>
+            </div>
+            <div class="price-big"><span class="amount" style="font-size:17px;">Soon</span></div>
+          </div>
+          <div class="spec-grid">
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Bench <b>Next</b></div>
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> IMEI <b>Soon</b></div>
+          </div>
+          <div class="card-ctas">
+            <a class="btn btn-wa-sm" href="#waitlist" style="background:var(--ink);color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;padding:12px;border-radius:11px;font-weight:700;font-size:14px;">🔔 Join the waitlist</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOCK CARD 3 (sold example = proof of life) -->
+      <div class="stock-card sold reveal">
+        <div class="card-visual" style="background:linear-gradient(150deg,#333a41,#22272c);">
+          <span class="cond-tag"><span class="gdot gB"></span> B-Grade</span>
+          <span class="device-emoji">📱</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <div>
+              <h3>iPhone 11</h3>
+              <div class="model-sub">128GB · Unlocked · Black</div>
+            </div>
+            <div class="price-big"><span class="amount" style="color:var(--muted);">R3,499</span></div>
+          </div>
+          <div class="spec-grid">
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Battery <b>84%</b></div>
+            <div class="spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> iCloud <b>Clear</b></div>
+          </div>
+          <div class="card-ctas">
+            <div style="text-align:center;color:var(--muted);font-size:13px;padding:10px;">Delivered to a happy buyer in Pretoria ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="stock-footnote">Want something specific? <a href="https://wa.me/27XXXXXXXXX?text=Hi%20TechBench%2C%20I%27m%20looking%20for...">Tell us what you're hunting</a> — we source to order.</p>
   </div>
 </section>
 
-<section class="catalog">
-  <h2>On the bench now</h2>
-  <article class="stock-card">
-    <h3>iPhone 12 · 128GB · A-grade</h3>
-    <p class="battery">Battery health: 88%</p>
-    <p class="price">R4,999</p>
-    <p class="note">bench-tested · IMEI verified</p>
-    <a class="whatsapp-btn" href="https://wa.me/27XXXXXXXXX?text=Hi%20TechBench%20-%20iPhone%2012" target="_blank" rel="noopener">Ask on WhatsApp</a>
-  </article>
-</section>
-
-<section class="steps">
-  <h2 id="how-it-works">How it works</h2>
-
-  <ol aria-labelledby="how-it-works">
-    <li>
-      <span class="step-number">1</span>
-      <p>We source &amp; bench-test every device</p>
-    </li>
-    <li>
-      <span class="step-number">2</span>
-      <p>We grade honestly with real photos + battery health</p>
-    </li>
-    <li>
-      <span class="step-number">3</span>
-      <p>You pay securely by EFT after invoice</p>
-    </li>
-    <li>
-      <span class="step-number">4</span>
-      <p>Free door-to-door delivery with tracking</p>
-    </li>
-  </ol>
-</section>
-
-<section class="section" id="what-we-promise" aria-labelledby="promise-title">
-  <div class="content">
-    <div class="section-head"><span class="eyebrow">Why TechBench</span><h2 id="promise-title">What we promise</h2></div>
-    <div class="promises">
-<div class='promise'><h3>Honest condition reports</h3><p>Every listing includes an honest condition report based on the device’s actual wear and working state.</p></div>
-<div class='promise'><h3>Tested on the bench</h3><p>Each device is fully tested on the bench before listing to confirm core functions work as expected.</p></div>
-<div class='promise'><h3>IMEI & iCloud verified</h3><p>Every phone is checked for IMEI status and iCloud Lock before sale.</p></div>
-<div class='promise'><h3>Clear communication</h3><p>We keep buyers informed with clear updates from purchase to delivery.</p></div>
+<!-- ============ BENCH SHOWCASE ============ -->
+<section class="alt" id="bench">
+  <div class="wrap bench-grid">
+    <div class="bench-copy reveal">
+      <div class="kicker">The TechBench difference</div>
+      <h2 class="sec-title">"Working when last used" isn't a test. This is.</h2>
+      <p class="lead">Most second-hand sellers say the phone works. We <em>prove</em> it — every unit runs through the same 20-point bench pass before it earns a listing.</p>
+      <ul>
+        <li>
+          <div class="ic">01</div>
+          <div><b>Identity &amp; legitimacy</b><span>IMEI blacklist check, iCloud/activation-lock status, Find My off — verified before anything else.</span></div>
+        </li>
+        <li>
+          <div class="ic">02</div>
+          <div><b>Full function test</b><span>Screen, touch, cameras, Face ID, speakers, mic, charging, WiFi, Bluetooth, cellular, buttons, haptics.</span></div>
+        </li>
+        <li>
+          <div class="ic">03</div>
+          <div><b>Battery &amp; health</b><span>Real battery-health reading, drain test, and honest disclosure — no "it lasts the day" vagueness.</span></div>
+        </li>
+        <li>
+          <div class="ic">04</div>
+          <div><b>Honest grading + photos</b><span>A/B/C grade from real wear, with photos of the actual unit and a date-stamped proof shot.</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="report-card">
+        <div class="rc-head">
+          <h3>Bench Test Report</h3>
+          <span class="stamp">✓ Passed</span>
+        </div>
+        <div class="rc-device">
+          <div class="di">📱</div>
+          <div><b>iPhone 12 · 128GB</b><small>Report #TB-0042 · A-Grade</small></div>
+        </div>
+        <div class="rc-checks">
+          <div class="rc-check"><span class="ok">✓</span> IMEI clean</div>
+          <div class="rc-check"><span class="ok">✓</span> iCloud removed</div>
+          <div class="rc-check"><span class="ok">✓</span> Screen &amp; touch</div>
+          <div class="rc-check"><span class="ok">✓</span> Face ID</div>
+          <div class="rc-check"><span class="ok">✓</span> Cameras (f+r)</div>
+          <div class="rc-check"><span class="ok">✓</span> Speakers &amp; mic</div>
+          <div class="rc-check"><span class="ok">✓</span> Charging port</div>
+          <div class="rc-check"><span class="ok">✓</span> WiFi / BT / Cell</div>
+          <div class="rc-check"><span class="ok">✓</span> All buttons</div>
+          <div class="rc-check"><span class="ok">✓</span> Liquid indicators</div>
+        </div>
+        <div class="rc-batt">
+          <div class="row"><span>Battery health</span><b>88% — excellent for this model's age</b></div>
+          <div class="track"><div class="fill" style="width:88%;"></div></div>
+        </div>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);font-family:var(--font-body);">Full report with photos sent on request — before you pay anything.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section faq" id="faq">
-  <h2>Frequently Asked Questions</h2>
-  <p>Answers to the most common questions about buying used tech from TechBench SA.</p>
-
-  <details>
-    <summary>Are any of your phones stolen or carrier-locked?</summary>
-    <p>No. Every device sold by TechBench SA is checked using its IMEI and verified against stolen-device databases. We do not sell stolen, blacklisted, iCloud-locked, Google FRP-locked, or carrier-locked devices. Each phone is confirmed to be clean, unlocked, and ready to use with your own SIM before it is listed for sale.</p>
-  </details>
-
-  <details>
-    <summary>Why are your used devices cheaper than buying new from iStore or other retailers?</summary>
-    <p>TechBench SA focuses on high-quality used and professionally refurbished devices rather than brand-new stock. This means you pay a lower price because you are not paying for unopened packaging, retail overheads, or first-owner depreciation. We pass the savings on to you while still providing tested devices, clear grading, and a reliable warranty.</p>
-  </details>
-
-  <details>
-    <summary>Do your used phones and devices come with a warranty?</summary>
-    <p>Yes. Every device sold through TechBench SA includes a bench-tested warranty period covering hardware faults that were not disclosed at the time of sale. Cosmetic wear, battery condition, and grading notes are clearly explained before purchase. If a fault arises during the warranty period, we will repair, replace, or refund where applicable, in line with our terms and the Consumer Protection Act.</p>
-  </details>
-
-  <details>
-    <summary>How does delivery work across South Africa?</summary>
-    <p>We offer insured nationwide courier delivery for most devices. Orders are typically dispatched within 1–2 working days after proof of payment is received and the device is confirmed in stock. Delivery times vary by area, but most South African locations receive their order within 2–5 working days. Tracking is provided once your TechBench package is dispatched.</p>
-  </details>
-
-  <details>
-    <summary>Can I pay by EFT, and how do I confirm payment?</summary>
-    <p>Yes, EFT is accepted. Once your order is reserved, we will send the correct banking details, account reference, and order total. After making payment, send proof of payment to our WhatsApp or email address so we can confirm the order and arrange packing or dispatch. Please include your order number and full name with your payment reference.</p>
-  </details>
-
-  <details>
-    <summary>Is collection available instead of delivery?</summary>
-    <p>Yes, collection is available for approved orders. If collection is possible for your item, we will provide the pickup location, available times, and what you need to bring for verification. Collection is often the fastest option for urgent phones, laptops, tablets, and accessories, especially within major areas like Cape Town and Gauteng.</p>
-  </details>
-</section>
-
-<section class="section contact" id="contact">
-  <h2>Contact TechBench SA</h2>
-  <p>Ready to find the right used phone, laptop, tablet, or accessory? Reach out directly and our team will assist you with availability, pricing, grading photos, warranty details, and delivery or collection.</p>
-
-  <div class="contact-actions">
-    <a class="whatsapp-button" href="https://wa.me/27XXXXXXXXX" target="_blank" rel="noopener noreferrer">
-      WhatsApp Us
-    </a>
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker center">How it works</div>
+      <h2 class="sec-title">From our bench to your hands in four steps</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg></div>
+        <h3>We source &amp; bench-test</h3>
+        <p>Devices are sourced and run through the full 20-point test pass on our bench before they're ever listed.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 3-3 3-3-3 3-3z"/><path d="M5 8h14v10a2 2 0 01-2 2H7a2 2 0 01-2-2V8z"/></svg></div>
+        <h3>You get the proof</h3>
+        <p>Real photos, real battery health, real grade — plus the bench report on request. Decide with full information.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <h3>Secure payment</h3>
+        <p>Clear invoice, EFT to our bank. We ship only once payment reflects in-bank — never on a screenshot.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">04</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <h3>Free tracked delivery</h3>
+        <p>Door-to-door via Paxi or Courier Guy, insured and tracked. You sign for it — that's when it becomes yours.</p>
+      </div>
+    </div>
   </div>
-
-  <ul>
-    <li>
-      <strong>Email:</strong>
-      <a href="mailto:info@techbench.co.za">info@techbench.co.za</a>
-    </li>
-    <li>
-      <strong>WhatsApp:</strong>
-      <a href="https://wa.me/27XXXXXXXXX" target="_blank" rel="noopener noreferrer">
-        +27 XXX XXX XXXX
-      </a>
-    </li>
-    <li>
-      <strong>Social:</strong>
-      <a href="https://instagram.com/techbench_za" target="_blank" rel="noopener noreferrer">
-        @techbench_za
-      </a>
-    </li>
-    <li>
-      <strong>Trading hours:</strong>
-      Mon–Fri, 09:00–18:00 | Sat, 09:00–14:00
-    </li>
-    <li>
-      <strong>Response time:</strong>
-      We aim to reply within 1 working hour during trading hours.
-    </li>
-  </ul>
 </section>
 
-<footer class="footer" id="footer">
-  <p>
-    All TechBench SA devices are bench-tested before sale. Where a fault, grade, battery condition, cosmetic detail, or accessory limitation is identified, it is disclosed clearly so buyers can make an informed decision.
-  </p>
-  <p>
-    TechBench SA operates in accordance with South African trading standards and the Consumer Protection Act. Buyers are protected against undisclosed misrepresentation, and our warranty terms, refund process, and dispute-resolution steps are designed to keep every sale transparent, accountable, and fair.
-  </p>
-  <p>
-    © TechBench SA. Used phones, laptops, tablets, and accessories — tested honestly, sold clearly.
-  </p>
+<!-- ============ PROMISES ============ -->
+<section class="alt" id="promises">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker center">Why TechBench</div>
+      <h2 class="sec-title">What we promise — in writing</h2>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-card reveal">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div>
+        <h3>Honest condition reports</h3>
+        <p>Real photos of the actual unit, real battery health, real grade. What you see is exactly what ships.</p>
+      </div>
+      <div class="promise-card reveal">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 3-3 3-3-3 3-3z"/><path d="M5 8h14v10a2 2 0 01-2 2H7a2 2 0 01-2-2V8z"/></svg></div>
+        <h3>Bench-tested, not "tested"</h3>
+        <p>Every function physically verified before listing. If it fails any material test, it's repaired, regraded, or not sold.</p>
+      </div>
+      <div class="promise-card reveal">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>IMEI &amp; iCloud verified</h3>
+        <p>No blacklisted, stolen or iCloud-locked devices. Ever. It's the first check on the bench and non-negotiable.</p>
+      </div>
+      <div class="promise-card reveal">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+        <h3>One human on WhatsApp</h3>
+        <p>You talk to the person who tested your device — from first message to delivery and beyond. No call centres, no bots.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker center">Reviews</div>
+      <h2 class="sec-title">What buyers say</h2>
+      <p class="sec-sub">Real reviews from real sales — added as they come in. We'd rather show you a few honest ones than a hundred fake stars.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card placeholder reveal">
+        <div class="quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Your first review lands here. Every buyer gets asked — the honest ones get posted, the fixes get made.</p>
+        <div class="testi-who">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#9aa3ab,#626d76);">?</div>
+          <div><b>First buyer</b><small>Awaiting first sale</small></div>
+        </div>
+      </div>
+      <div class="testi-card placeholder reveal">
+        <div class="quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Sold ✅ — proof of life. Every completed sale gets posted here and on our socials, because a track record is earned one delivery at a time.</p>
+        <div class="testi-who">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#9aa3ab,#626d76);">✓</div>
+          <div><b>Sold history</b><small>Building since 2026</small></div>
+        </div>
+      </div>
+      <div class="testi-card placeholder reveal">
+        <div class="quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Know someone who got a good deal from us? Reviews and referrals are how a small operation grows — and they earn you a discount on your next buy.</p>
+        <div class="testi-who">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#9aa3ab,#626d76);">→</div>
+          <div><b>Referral credit</b><small>R100 off your next device</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUYER'S GUIDE / SCAM ============ -->
+<section class="dark" id="guide">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker center" style="color:var(--orange);">Free knowledge</div>
+      <h2 class="sec-title" style="color:#fff;">The SA Buyer's Guide — no secrets</h2>
+      <p class="sec-sub">We publish the exact checks we run, because an educated buyer is a happy buyer. Steal these — they'll save you from the scams out there.</p>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card reveal">
+        <div class="gic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h3>Check the IMEI before you pay</h3>
+        <p>Dial *#06#, verify it matches Settings, run it through a blacklist check. A "cheap" blacklisted iPhone is a brick with a screen.</p>
+        <span class="g-tag">Blacklist · iCloud lock</span>
+      </div>
+      <div class="guide-card reveal">
+        <div class="gic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Why is that phone so cheap?</h3>
+        <p>iCloud-locked, blacklisted, a "deposit first" scam, or wrong internals in a pretty shell. If it's far below market, you're the product.</p>
+        <span class="g-tag">Too-good-to-be-true</span>
+      </div>
+      <div class="guide-card reveal">
+        <div class="gic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg></div>
+        <h3>Battery health is a price lever</h3>
+        <p>85%+ is good for a used phone. Below ~80% means a battery replacement is coming — price it accordingly, or walk away.</p>
+        <span class="g-tag">Settings → Battery</span>
+      </div>
+      <div class="guide-card reveal">
+        <div class="gic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Never pay a "deposit to hold"</h3>
+        <p>Real sellers don't need deposits from strangers. Meet safely, inspect before paying, and use cleared EFT or cash in hand.</p>
+        <span class="g-tag">Scam pattern #1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker center">FAQ</div>
+      <h2 class="sec-title">Questions, answered straight</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Are your phones stolen or locked?<span class="plus">+</span></summary>
+        <div class="a">No. Every device passes an IMEI blacklist check and an iCloud / activation-lock check before listing. We don't sell blacklisted or locked devices — it's the first thing checked on the bench, and it's not worth our name to skip it. The bench report shows you the proof.</div>
+      </details>
+      <details>
+        <summary>Why are you cheaper than iStore Preowned?<span class="plus">+</span></summary>
+        <div class="a">iStore sells a brand name, a storefront, and retail overhead. We sell bench-test proof, direct communication with the person who tested your device, and a written warranty — without the retail cost. That's where your saving comes from, not from cutting corners.</div>
+      </details>
+      <details>
+        <summary>What does the warranty actually cover?<span class="plus">+</span></summary>
+        <div class="a">Every device includes a 30-day warranty against functional defects from delivery. It excludes physical damage, liquid damage, and battery wear from normal use (battery health is disclosed at sale). The full written policy is sent with your invoice — no fine print surprises.</div>
+      </details>
+      <details>
+        <summary>How does delivery work?<span class="plus">+</span></summary>
+        <div class="a">Free door-to-door via Paxi or Courier Guy, wherever they deliver. You get a tracking number the day it ships, and the parcel is insured. Risk passes to you only once it's signed for as delivered — if it's lost in transit, that's on us, not you.</div>
+      </details>
+      <details>
+        <summary>How do I pay?<span class="plus">+</span></summary>
+        <div class="a">By EFT to the bank account on your invoice. We ship only once payment reflects in our bank account — verified in-bank, never on a screenshot. That protects us both: you know the device is real, and we know the payment is real.</div>
+      </details>
+      <details>
+        <summary>Can I collect instead?<span class="plus">+</span></summary>
+        <div class="a">Yes — safe public meetup (police station / mall / bank lobby), and you can inspect and test the device in person before paying. Collection saves us the courier cost, so the price may be slightly lower. We'll arrange it on WhatsApp.</div>
+      </details>
+      <details>
+        <summary>Do you buy phones or take trade-ins?<span class="plus">+</span></summary>
+        <div class="a">Coming soon — we're building the trade-in desk. When it launches, you'll be able to sell us your old or broken device (it feeds our repair bench and keeps prices down). <a href="#waitlist">Join the waitlist</a> and you'll hear first.</div>
+      </details>
+      <details>
+        <summary>What if the device doesn't match the listing?<span class="plus">+</span></summary>
+        <div class="a">Then we've misrepresented it, and you're covered: return it within 7 days for a full refund. Devices are sold as-described with real photos — if what arrives doesn't match, that's on us to make right. Our Consumer Protection Act obligations always apply.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WAITLIST ============ -->
+<section class="waitlist-band" id="waitlist">
+  <div class="wrap">
+    <h2>Never miss a drop</h2>
+    <p>Join the waitlist — get notified first when new devices pass the bench, plus first refusal on incoming stock.</p>
+    <form class="waitlist-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'padding:14px 20px;background:rgba(255,255,255,.15);border-radius:11px;font-weight:700;\'>✅ You\'re on the list! We\'ll WhatsApp you first.</div>';">
+      <input type="tel" placeholder="Your WhatsApp number" required pattern="[0-9+ ]{9,15}">
+      <button class="btn btn-dark" type="submit">Notify me</button>
+    </form>
+    <div class="waitlist-note">No spam. One message per stock drop. Unsubscribe anytime.</div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker center">Contact</div>
+      <h2 class="sec-title">Talk to the bench</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="cic wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <h3>WhatsApp</h3>
+        <p>Fastest way to reach us — stock, bench reports, everything.</p>
+        <a href="https://wa.me/27XXXXXXXXX">Chat now →</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="cic mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <h3>Email</h3>
+        <p>Invoices, formal enquiries, warranty claims.</p>
+        <a href="mailto:info@techbench.co.za">info@techbench.co.za →</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="cic pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Based in South Africa</h3>
+        <p>Serving all provinces via courier. Safe meetups where available.</p>
+        <a href="#guide">Delivery areas →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">TB</div>
+        <p>Quality pre-owned tech, bench-tested before it ships. Built in South Africa, one verified device at a time.</p>
+        <div class="payment-methods" style="margin-top:16px;">
+          <span class="pay-chip">EFT</span>
+          <span class="pay-chip">PAXI</span>
+          <span class="pay-chip">COURIER GUY</span>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#stock">Current stock</a></li>
+          <li><a href="#waitlist">Join the waitlist</a></li>
+          <li><a href="https://wa.me/27XXXXXXXXX">Sell us your phone</a></li>
+          <li><a href="#bench">The bench process</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#guide">Buyer's guide</a></li>
+          <li><a href="#guide">Scam awareness</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">@techbench_za on X</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Warranty &amp; Returns</a></li>
+          <li><a href="#">Terms of Sale</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="mailto:info@techbench.co.za">info@techbench.co.za</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TechBench · Quality pre-owned &amp; refurbished tech, South Africa · Prices in ZAR</span>
+      <span>Nothing in our policies limits your rights under the South African Consumer Protection Act 68 of 2008.</span>
+    </div>
+  </div>
 </footer>
+
+<!-- floating WhatsApp -->
+<a class="float-wa" href="https://wa.me/27XXXXXXXXX?text=Hi%20TechBench!" aria-label="Chat on WhatsApp">
+  <span class="wa-ping"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth anchor offset for sticky header
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const y = target.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
