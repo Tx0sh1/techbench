@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades &amp; The Bench — TechBench</title>
+<meta name="description" content="What TechBench grades A, B and C mean, what runs on our bench, and how 'pay after proof' works. South Africa's honest pre-owned tech shop.">
+<meta name="theme-color" content="#1a1d21">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e4572e'/%3E%3Ctext x='32' y='42' font-size='26' font-family='Arial' font-weight='bold' text-anchor='middle' fill='white'%3ETB%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --ink: #1a1d21;
+    --paper: #f3f1ec;
+    --chalk: #fffcf7;
+    --bench: #e4572e;
+    --bench-dark: #c7441f;
+    --steel: #2e353b;
+    --steel-light: #5a666e;
+    --line: #d9d5cc;
+    --ok: #1e7d46;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  a { color: var(--bench-dark); }
+  a:hover { color: var(--bench); }
+  :focus-visible { outline: 2.5px solid var(--bench); outline-offset: 3px; }
+  .top { background: var(--ink); color: #fff; padding: 18px 0; border-bottom: 3px solid var(--bench); }
+  .wrap { width: min(720px, calc(100% - 40px)); margin-inline: auto; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 800; }
+  .logo { width: 36px; height: 36px; border-radius: 9px; background: var(--bench); display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+  .brand em { font-style: normal; color: var(--bench); }
+  .back { display: inline-block; margin-top: 10px; color: #aeb6bd; text-decoration: none; font-size: 14px; font-weight: 600; }
+  .back:hover { color: #fff; }
+  main { padding: 48px 0 72px; }
+  .kicker { color: var(--bench); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 10px; }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); line-height: 1.15; margin-bottom: 6px; }
+  .meta { color: var(--steel-light); font-size: 14px; margin-bottom: 28px; }
+  .card { background: var(--chalk); border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+  .card h2 { font-size: 19px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .card p { margin-bottom: 12px; }
+  .card ul { margin: 0 0 14px 20px; }
+  .card li { margin-bottom: 8px; }
+  .grade-row { display: grid; grid-template-columns: 90px 1fr; gap: 16px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .grade-row:last-child { border-bottom: none; }
+  .grade-pill { display: inline-block; background: var(--ink); color: #fff; font-weight: 800; font-size: 15px; padding: 4px 14px; border-radius: 99px; text-align: center; }
+  .grade-row small { display: block; color: var(--steel-light); margin-top: 2px; }
+  .note { background: #fdf3ec; border-left: 4px solid var(--bench); padding: 14px 16px; border-radius: 0 10px 10px 0; font-size: 14.5px; }
+  .ok { color: var(--ok); font-weight: 800; }
+  .btn-wa { display: inline-block; background: #25d366; color: #fff; font-weight: 700; text-decoration: none; padding: 12px 22px; border-radius: 12px; }
+  .btn-wa:hover { background: #1eb75a; color: #fff; }
+  .verify { margin-top: 10px; text-align: center; }
+  @media (max-width: 480px) {
+    .grade-row { grid-template-columns: 1fr; gap: 6px; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="../index.html">
+        <span class="logo" aria-hidden="true">TB</span>
+        Tech<em>Bench</em>
+      </a>
+      <div><a class="back" href="../index.html">← Back to store</a></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="kicker">Trust &amp; Transparency</p>
+      <h1>Grades &amp; The Bench</h1>
+      <p class="meta">Exactly how TechBench decides what's an A, B or C — and what happens to every device before you see it.</p>
+
+      <div class="card">
+        <h2>⚙️ Every unit runs the bench first</h2>
+        <p>Before any device is listed, it goes through a full test pass on the workbench. The result is a <strong>bench certificate</strong> — a dated, unit-serialised record of every check that passed. You can open it for any unit on its product page.</p>
+        <p>The standard pass covers: screen &amp; touch (dead pixels, lines), Face ID / Touch ID, cameras front and rear, speakers / mic / earpiece call test, charging port and wireless charging, WiFi / Bluetooth / cellular, buttons, haptics and sensors, liquid damage indicators, and a battery drain test. Battery health is read from the device itself — the real number, not an estimate.</p>
+        <p><span class="ok">✓</span> IMEI and iCloud status are checked before listing: no blacklisted units, no locked units, no iCloud-bound devices. Ever.</p>
+      </div>
+
+      <div class="card">
+        <h2>🏷️ The grades</h2>
+
+        <div class="grade-row">
+          <span class="grade-pill">A</span>
+          <div>
+            <b>Excellent — micro-scratches only</b>
+            <small>You'll need to hunt for the flaws. Screen is clean, body is near-mint, everything works. This is the closest to new you'll get without paying new prices.</small>
+          </div>
+        </div>
+        <div class="grade-row">
+          <span class="grade-pill">B</span>
+          <div>
+            <b>Honest signs of use</b>
+            <small>Visible wear — light scuffs, a worn charging port surround, maybe a hairline mark on the frame. Nothing that affects function. The honest grade most resellers would quietly call "excellent".</small>
+          </div>
+        </div>
+        <div class="grade-row">
+          <span class="grade-pill">C</span>
+          <div>
+            <b>Clear wear, fully working</b>
+            <small>Real cosmetic wear: dents, scratches, scuffs — disclosed and photographed. Everything still passes the bench. Sold at a clear discount because of how it looks, not how it works.</small>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>The TechBench rule:</strong> we grade down, never up. If we're not sure whether it's an A or a B, it's a B. The certificate you see is the unit you get — same serial, same grade, same battery number.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📷 Pay after proof</h2>
+        <p>We don't ask for a cent until you've seen what you're buying. The flow is always:</p>
+        <ul>
+          <li><strong>1.</strong> You enquire on WhatsApp about a unit.</li>
+          <li><strong>2.</strong> We send real photos of <em>that exact unit</em> — not stock photos — plus its bench certificate.</li>
+          <li><strong>3.</strong> You confirm, we reserve the unit for you.</li>
+          <li><strong>4.</strong> You pay by EFT. We ship free, tracked, door to door.</li>
+          <li><strong>5.</strong> Your 30-day written warranty starts the day it lands.</li>
+        </ul>
+        <p>Every sale is tied to a unit serial (TB-####). That serial never gets reused, and its certificate stays public even after the unit sells — so the history is always checkable.</p>
+      </div>
+
+      <div class="verify">
+        <a class="btn-wa" href="https://wa.me/27647928206?text=Hi%20TechBench%2C%20I%20have%20a%20question%20about%20your%20grading.">💬 Ask us anything on WhatsApp</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

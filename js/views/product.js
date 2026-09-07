@@ -24,6 +24,7 @@ function renderProduct(id) {
 
   // ---- Bench certificate (visible trust block) ----
   const benchChecks = p.bench && p.bench.length;
+  const certLink = p.unit ? `<a class="cert-link" href="certs/${p.unit}.html" target="_blank" rel="noopener">🔗 View public certificate for ${p.unit}</a>` : "";
   const benchHTML = benchChecks ? `
     <div class="d-section cert" id="bench-cert">
       <div class="cert-head">
@@ -36,10 +37,10 @@ function renderProduct(id) {
       <div class="bench-list">${p.bench.map(b => `<div><span class="ok">✓</span> ${b}</div>`).join("")}</div>
       <div class="cert-foot">
         <span>${p.bench.length} of ${p.bench.length} checks passed on the TechBench workbench</span>
-        <button class="btn btn-ghost btn-small" id="cert-print">🖨️ Print / save certificate</button>
+        <span style="display:flex;gap:10px;flex-wrap:wrap;">${certLink}<button class="btn btn-ghost btn-small" id="cert-print">🖨️ Print / save certificate</button></span>
       </div>
     </div>` : (p.status === "sold"
-      ? `<div class="d-section cert"><div class="cert-head"><div><h3 style="margin:0;">✓ Bench Certificate</h3><div class="cert-unit">Unit ${p.unit || "—"} · Tested ${p.benchDate || "—"} · passed full bench test before shipping</div></div><span class="cert-stamp" style="background:var(--green);color:#fff;">SOLD ✓</span></div></div>`
+      ? `<div class="d-section cert"><div class="cert-head"><div><h3 style="margin:0;">✓ Bench Certificate</h3><div class="cert-unit">Unit ${p.unit || "—"} · Tested ${p.benchDate || "—"} · passed full bench test before shipping</div></div><span class="cert-stamp" style="background:var(--green);color:#fff;">SOLD ✓</span></div>${certLink ? `<div class="cert-foot" style="border:none;padding:12px 0 0;">${certLink}</div>` : ""}</div>`
       : `<div class="d-section cert"><div class="cert-head"><div><h3 style="margin:0;">🔜 Bench Certificate pending</h3><div class="cert-unit">Unit ${p.unit || "—"} will be bench-tested when it lands — report published here before it's listed.</div></div></div></div>`);
 
   // ---- Grading explainer trigger ----
@@ -47,6 +48,27 @@ function renderProduct(id) {
     <button class="grade-link" id="grade-info">ℹ️ What does "${gradeLabel(p.grade)}" mean?</button>` : "";
 
   const notesHTML = p.notes ? `<div class="d-section"><div class="d-notes">📌 ${p.notes}</div></div>` : "";
+
+  // ---- Verified buyer reviews (exported from the DB — approved only) ----
+  const unitReviews = (typeof REVIEWS !== "undefined" && p.unit && REVIEWS[p.unit]) || [];
+  const starRow = (n) => "★".repeat(n) + "☆".repeat(5 - n);
+  const reviewsHTML = `
+    <div class="d-section" id="reviews">
+      <h3 style="margin-bottom:14px;">💬 Buyer reviews <span class="verified-badge">✓ verified buyers only</span></h3>
+      ${unitReviews.length ? `
+        <div class="review-list">
+          ${unitReviews.map(r => `
+            <div class="review-item">
+              <div class="review-head">
+                <span class="review-stars" style="color:var(--bench);letter-spacing:1px;">${starRow(r.rating)}</span>
+                <span class="review-verified">✓ Verified buyer of ${r.unit}</span>
+              </div>
+              <p style="margin:8px 0 4px;font-size:14.5px;line-height:1.6;">${r.text}</p>
+              <small style="color:var(--muted);">${r.author} · ${new Date(r.date).toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })}</small>
+            </div>`).join("")}
+        </div>` : `
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;">No reviews yet for this unit — it ships with a written 30-day warranty, and its next owner gets to write the first verified review. <a href="docs/grades.html" style="color:var(--bench);">See how grading works →</a></p>`}
+    </div>`;
 
   const savePct = p.was ? Math.round((1 - p.price / p.was) * 100) : 0;
 
@@ -103,6 +125,7 @@ function renderProduct(id) {
         </div>` : ""}
         ${benchHTML}
         ${notesHTML}
+        ${reviewsHTML}
       </div>
     </div>`;
 
