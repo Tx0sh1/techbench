@@ -144,7 +144,7 @@ function renderContent(page) {
         </details>
         <details>
           <summary>What does the warranty actually cover?<span class="plus">+</span></summary>
-          <div class="a">Every device includes a 30-day warranty against functional defects from delivery. It excludes physical damage, liquid damage, and battery wear from normal use (battery health is disclosed at sale). The full written policy is sent with your invoice — no fine print surprises.</div>
+          <div class="a">Every device includes a 7-day warranty against functional defects from delivery. It excludes physical damage, liquid damage, and battery wear from normal use (battery health is disclosed at sale). The full written policy is sent with your invoice — no fine print surprises.</div>
         </details>
         <details>
           <summary>How does delivery work?<span class="plus">+</span></summary>

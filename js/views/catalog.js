@@ -50,11 +50,11 @@ function renderCatalog() {
     <div class="home-hero">
       <div class="hh-copy">
         <h1>Quality pre-owned tech,<br><span class="hh-accent">bench-tested before it ships.</span></h1>
-        <p>Every device runs a full test pass on our bench — real grade, real battery health, real photos, and a dated certificate for the exact unit you buy. Free delivery, 30-day warranty, one human on WhatsApp.</p>
+        <p>Every device runs a full test pass on our bench — real grade, real battery health, real photos, and a dated certificate for the exact unit you buy. Free delivery, 7-day warranty, one human on WhatsApp.</p>
         <div class="hh-stats">
           <div><b>${avail}</b><small>units on the bench now</small></div>
           <div><b>100%</b><small>IMEI &amp; iCloud checked</small></div>
-          <div><b>30-day</b><small>written warranty</small></div>
+          <div><b>7-day</b><small>written warranty</small></div>
         </div>
       </div>
       <div class="hh-trust">

@@ -42,7 +42,7 @@ const PRODUCTS = [
       "Network": "Unlocked — all SA networks",
       "iOS": "Latest (updated on bench)",
       "Accessories": "Cable included · no box",
-      "Warranty": "30-day TechBench warranty"
+      "Warranty": "7-day TechBench warranty"
     },
     bench: [
       "Screen & touch — no dead pixels, no lines",
@@ -112,7 +112,7 @@ const PRODUCTS = [
       "Grade": "A",
       "Battery health": "92%",
       "Network": "Unlocked",
-      "Warranty": "30-day TechBench warranty"
+      "Warranty": "7-day TechBench warranty"
     },
     bench: [
       "Screen & touch — full pass",
@@ -150,7 +150,7 @@ const PRODUCTS = [
       "Grade": "A",
       "Battery health": "95%",
       "Network": "WiFi only",
-      "Warranty": "30-day TechBench warranty"
+      "Warranty": "7-day TechBench warranty"
     },
     bench: [
       "Screen & touch — full pass",
@@ -188,7 +188,7 @@ const PRODUCTS = [
       "Grade": "B — scuffs, fully functional",
       "Includes": "1× DualShock 4, power cable",
       "Tested": "2hr stress test on bench",
-      "Warranty": "30-day TechBench warranty"
+      "Warranty": "7-day TechBench warranty"
     },
     bench: [
       "Power on / off cycles — clean",
@@ -226,7 +226,7 @@ const PRODUCTS = [
       "Colour": "Turquoise",
       "Grade": "A",
       "Includes": "Charger",
-      "Warranty": "30-day TechBench warranty"
+      "Warranty": "7-day TechBench warranty"
     },
     bench: [
       "Screen — no scratches, no dead pixels",
@@ -262,7 +262,7 @@ const PRODUCTS = [
       "Grade": "B — case scuffs, buds clean",
       "Battery": "Buds ~82%, case healthy",
       "Includes": "Fresh ear tips (S/M/L), cable",
-      "Warranty": "30-day TechBench warranty"
+      "Warranty": "7-day TechBench warranty"
     },
     bench: [
       "Both buds — audio output clean",

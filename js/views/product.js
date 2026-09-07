@@ -67,7 +67,7 @@ function renderProduct(id) {
               <small style="color:var(--muted);">${r.author} · ${new Date(r.date).toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })}</small>
             </div>`).join("")}
         </div>` : `
-        <p style="font-size:14px;color:var(--muted);line-height:1.6;">No reviews yet for this unit — it ships with a written 30-day warranty, and its next owner gets to write the first verified review. <a href="docs/grades.html" style="color:var(--bench);">See how grading works →</a></p>`}
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;">No reviews yet for this unit — it ships with a written 7-day warranty, and its next owner gets to write the first verified review. <a href="docs/grades.html" style="color:var(--bench);">See how grading works →</a></p>`}
     </div>`;
 
   const savePct = p.was ? Math.round((1 - p.price / p.was) * 100) : 0;
@@ -114,7 +114,7 @@ function renderProduct(id) {
             ${savePct ? `<span class="d-save">SAVE ${savePct}%</span>` : ""}
           ` : sold ? `<span class="d-price" style="color:var(--muted);">Sold</span>` : `<span class="d-price">Coming soon</span>`}
         </div>
-        ${isAvail ? `<div class="d-free">✓ Free door-to-door delivery · 30-day warranty · IMEI &amp; iCloud verified · <a href="https://www.checkmend.com/za/" target="_blank" rel="noopener" style="color:var(--bench);text-decoration:underline;">CheckMend check on request</a></div>` : ""}
+        ${isAvail ? `<div class="d-free">✓ Free door-to-door delivery · 7-day warranty · IMEI &amp; iCloud verified · <a href="https://www.checkmend.com/za/" target="_blank" rel="noopener" style="color:var(--bench);text-decoration:underline;">CheckMend check on request</a></div>` : ""}
         ${actions}
         <div class="d-section">
           <p style="font-size:14.5px;color:var(--muted);">${p.description || ""}</p>
