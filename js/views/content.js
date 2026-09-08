@@ -148,7 +148,7 @@ function renderContent(page) {
         </details>
         <details>
           <summary>How does delivery work?<span class="plus">+</span></summary>
-          <div class="a">Two ways. Paxi is free — we send it to the PEP store you name (e.g. “PEP Polokwane CBD”) and you collect with your ID, usually within 3–7 days. Courier Guy is R100 and brings it to your door, tracked, in 1–3 days. Either way you get a tracking number the day it ships, and the parcel is insured. Risk passes to you only once it's signed for as delivered — if it's lost in transit, that's on us, not you.</div>
+          <div class="a">Two ways. Paxi is free — we send it to the PEP store you name (e.g. “PEP Polokwane CBD”) and you collect with your ID, usually within 7–9 days (a 3–5 day express bag is available in-store). Courier Guy is R100 and brings it to your door, tracked, in 1–3 days. Either way you get a tracking number the day it ships, and the parcel is insured. Risk passes to you only once it's signed for as delivered — if it's lost in transit, that's on us, not you.</div>
         </details>
         <details>
           <summary>How do I pay?<span class="plus">+</span></summary>

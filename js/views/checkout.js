@@ -54,7 +54,7 @@ function renderCheckout() {
           </label>
           <label class="delivery-opt" data-delivery="Paxi">
             <input type="radio" name="delivery" value="Paxi">
-            <div><b>📦 Paxi (PEP)</b><small>Collect at the PEP store you choose · FREE · 3–7 days</small></div>
+            <div><b>📦 Paxi (PEP)</b><small>Collect at the PEP store you choose · FREE · 7–9 days</small></div>
           </label>
           <label class="delivery-opt" data-delivery="Collection">
             <input type="radio" name="delivery" value="Collection">
