@@ -42,7 +42,7 @@ function renderCart() {
   footEl.innerHTML = `
     <div class="cart-total">
       <span>Total${count > 1 ? ` (${count} items)` : ""}
-        <small>Free delivery included</small>
+        <small>Paxi FREE · Courier Guy R100</small>
       </span>
       <span>${zar(Cart.total())}</span>
     </div>

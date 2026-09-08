@@ -38,8 +38,8 @@ function renderContent(page) {
         <div class="step-card">
           <div class="step-num">04</div>
           <div class="step-ic">🚚</div>
-          <h3>Free tracked delivery</h3>
-          <p>Door-to-door via Paxi or Courier Guy, insured and tracked. You sign for it — that's when it becomes yours.</p>
+          <h3>Free Paxi delivery</h3>
+          <p>Free Paxi delivery to the PEP store you choose — or R100 for Courier Guy door-to-door, insured and tracked. You sign for it — that's when it becomes yours.</p>
         </div>
       </div>
 
@@ -148,7 +148,7 @@ function renderContent(page) {
         </details>
         <details>
           <summary>How does delivery work?<span class="plus">+</span></summary>
-          <div class="a">Free door-to-door via Paxi or Courier Guy, wherever they deliver. You get a tracking number the day it ships, and the parcel is insured. Risk passes to you only once it's signed for as delivered — if it's lost in transit, that's on us, not you.</div>
+          <div class="a">Two ways. Paxi is free — we send it to the PEP store you name (e.g. “PEP Polokwane CBD”) and you collect with your ID, usually within 3–7 days. Courier Guy is R100 and brings it to your door, tracked, in 1–3 days. Either way you get a tracking number the day it ships, and the parcel is insured. Risk passes to you only once it's signed for as delivered — if it's lost in transit, that's on us, not you.</div>
         </details>
         <details>
           <summary>How do I pay?<span class="plus">+</span></summary>

@@ -32,7 +32,9 @@ function renderCheckout() {
       <div class="order-summary">
         <h4>Your order</h4>
         ${rows}
-        <div class="os-row total"><span>Total — free delivery</span><span>${zar(Cart.total())}</span></div>
+        <div class="os-row"><span>Subtotal</span><span>${zar(Cart.total())}</span></div>
+        <div class="os-row"><span>Delivery</span><span id="dl-fee">R100</span></div>
+        <div class="os-row total"><span>Total</span><span id="dl-total">${zar(Cart.total() + 100)}</span></div>
       </div>
 
       <div class="form-group">
@@ -48,21 +50,22 @@ function renderCheckout() {
         <div class="delivery-options" id="delivery-options">
           <label class="delivery-opt selected" data-delivery="Courier Guy">
             <input type="radio" name="delivery" value="Courier Guy" checked>
-            <div><b>🚚 Courier Guy</b><small>Fast door-to-door · 1-3 days · tracked</small></div>
+            <div><b>🚚 Courier Guy</b><small>Door-to-door · 1–3 days · tracked · R100</small></div>
           </label>
           <label class="delivery-opt" data-delivery="Paxi">
             <input type="radio" name="delivery" value="Paxi">
-            <div><b>📦 Paxi (PEP)</b><small>Affordable door-to-door · 3-7 days</small></div>
+            <div><b>📦 Paxi (PEP)</b><small>Collect at the PEP store you choose · FREE · 3–7 days</small></div>
           </label>
           <label class="delivery-opt" data-delivery="Collection">
             <input type="radio" name="delivery" value="Collection">
-            <div><b>🤝 Safe collection</b><small>Meet in a safe public place · inspect before paying</small></div>
+            <div><b>🤝 Safe collection</b><small>Public meetup · inspect before paying · FREE</small></div>
           </label>
         </div>
       </div>
       <div class="form-group hidden" id="address-group">
-        <label for="c-address">Delivery address</label>
+        <label for="c-address" id="c-address-label">Delivery address</label>
         <textarea id="c-address" rows="2" placeholder="Street address, suburb, city, province"></textarea>
+        <div class="field-hint" id="c-address-hint">Door-to-door, tracked — arrives in 1–3 days.</div>
       </div>
       <div class="form-group">
         <label for="c-notes">Notes (optional)</label>
@@ -77,14 +80,32 @@ function renderCheckout() {
     </div>
   `;
 
-  // delivery option toggle
+  // delivery option toggle + live fee
+  const COURIER_FEE = 100;
   let delivery = "Courier Guy";
+  function dlFee() { return delivery === "Courier Guy" ? COURIER_FEE : 0; }
+  function refreshDelivery() {
+    document.getElementById("dl-fee").textContent = dlFee() ? zar(dlFee()) : "FREE";
+    document.getElementById("dl-total").textContent = zar(Cart.total() + dlFee());
+    const cg = delivery === "Courier Guy";
+    const addrLabel = document.getElementById("c-address-label");
+    const addrHint = document.getElementById("c-address-hint");
+    const addr = document.getElementById("c-address");
+    document.getElementById("address-group").classList.toggle("hidden", delivery === "Collection");
+    if (delivery === "Collection") return;
+    addrLabel.textContent = cg ? "Delivery address" : "Paxi collection store";
+    addr.placeholder = cg ? "Street address, suburb, city, province"
+      : "PEP store + town — e.g. PEP Polokwane CBD, corner Market & Voortrekker";
+    addrHint.textContent = cg
+      ? "Door-to-door, tracked — arrives in 1–3 days."
+      : "We send the parcel to this PEP store. We'll WhatsApp you when it's ready — bring your ID to collect.";
+  }
   document.querySelectorAll(".delivery-opt").forEach(opt => {
     opt.addEventListener("click", () => {
       document.querySelectorAll(".delivery-opt").forEach(o => o.classList.remove("selected"));
       opt.classList.add("selected");
       delivery = opt.dataset.delivery;
-      document.getElementById("address-group").classList.toggle("hidden", delivery === "Collection");
+      refreshDelivery();
     });
   });
 
@@ -97,7 +118,12 @@ function renderCheckout() {
 
     if (!name) { toast("Please enter your name", "⚠️"); document.getElementById("c-name").focus(); return; }
     if (!phone || phone.replace(/\D/g, "").length < 9) { toast("Please enter a valid phone number", "⚠️"); document.getElementById("c-phone").focus(); return; }
-    if (delivery !== "Collection" && !address) { toast("Please enter your delivery address", "⚠️"); document.getElementById("c-address").focus(); return; }
+    if (delivery === "Collection") {
+      // no destination needed
+    } else if (!address) {
+      toast(delivery === "Paxi" ? "Tell us which PEP store to send it to" : "Please enter your delivery address", "⚠️");
+      document.getElementById("c-address").focus(); return;
+    }
 
     // build the order message
     const lines = [];
@@ -105,8 +131,10 @@ function renderCheckout() {
     lines.push("");
     lines.push(`👤 *Name:* ${name}`);
     lines.push(`📱 *Phone:* ${phone}`);
-    lines.push(`🚚 *Delivery:* ${delivery}`);
-    if (delivery !== "Collection" && address) lines.push(`📍 *Address:* ${address}`);
+    lines.push(`🚚 *Delivery:* ${delivery}${dlFee() ? " — " + zar(dlFee()) : " — FREE"}`);
+    if (delivery === "Courier Guy" && address) lines.push(`📍 *Deliver to:* ${address}`);
+    else if (delivery === "Paxi" && address) lines.push(`🏪 *Paxi store:* ${address}`);
+    else if (delivery === "Collection") lines.push("🤝 *Collection:* we'll arrange a safe public meetup");
     if (notes) lines.push(`📝 *Notes:* ${notes}`);
     lines.push("");
     lines.push("*Items:*");
@@ -115,7 +143,9 @@ function renderCheckout() {
       if (p) lines.push(`• ${p.model}${p.storage ? " " + p.storage : ""} (${p.grade}-grade${p.battery ? ", 🔋" + p.battery + "%" : ""}) × ${item.qty} — ${zar(p.price * item.qty)}`);
     });
     lines.push("");
-    lines.push(`💰 *Total (free delivery):* ${zar(Cart.total())}`);
+    lines.push(`*Subtotal:* ${zar(Cart.total())}`);
+    lines.push(`*Delivery:* ${dlFee() ? zar(dlFee()) : "FREE"}`);
+    lines.push(`*Total:* ${zar(Cart.total() + dlFee())}`);
     lines.push("");
     lines.push("Please send the bench reports + real photos for the items above. I'll pay by EFT once confirmed. 🙌");
 

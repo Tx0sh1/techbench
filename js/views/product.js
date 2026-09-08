@@ -114,7 +114,7 @@ function renderProduct(id) {
             ${savePct ? `<span class="d-save">SAVE ${savePct}%</span>` : ""}
           ` : sold ? `<span class="d-price" style="color:var(--muted);">Sold</span>` : `<span class="d-price">Coming soon</span>`}
         </div>
-        ${isAvail ? `<div class="d-free">✓ Free door-to-door delivery · 7-day warranty · IMEI &amp; iCloud verified · <a href="https://www.checkmend.com/za/" target="_blank" rel="noopener" style="color:var(--bench);text-decoration:underline;">CheckMend check on request</a></div>` : ""}
+        ${isAvail ? `<div class="d-free">✓ Free Paxi store delivery · R100 door-to-door · 7-day warranty · IMEI &amp; iCloud verified · <a href="https://www.checkmend.com/za/" target="_blank" rel="noopener" style="color:var(--bench);text-decoration:underline;">CheckMend check on request</a></div>` : ""}
         ${actions}
         <div class="d-section">
           <p style="font-size:14.5px;color:var(--muted);">${p.description || ""}</p>

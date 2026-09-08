@@ -50,7 +50,7 @@ function renderCatalog() {
     <div class="home-hero">
       <div class="hh-copy">
         <h1>Quality pre-owned tech,<br><span class="hh-accent">bench-tested before it ships.</span></h1>
-        <p>Every device runs a full test pass on our bench — real grade, real battery health, real photos, and a dated certificate for the exact unit you buy. Free delivery, 7-day warranty, one human on WhatsApp.</p>
+        <p>Every device runs a full test pass on our bench — real grade, real battery health, real photos, and a dated certificate for the exact unit you buy. Free Paxi store delivery (or R100 door-to-door), 7-day warranty, one human on WhatsApp.</p>
         <div class="hh-stats">
           <div><b>${avail}</b><small>units on the bench now</small></div>
           <div><b>100%</b><small>IMEI &amp; iCloud checked</small></div>
@@ -60,7 +60,7 @@ function renderCatalog() {
       <div class="hh-trust">
         <div class="trust-card"><span class="tc-ic">🛡️</span><div><b>No stolen or locked stock</b><small>Blacklist + iCloud verified on every unit</small></div></div>
         <div class="trust-card"><span class="tc-ic">🔋</span><div><b>Honest battery health</b><small>The real number, from Settings</small></div></div>
-        <div class="trust-card"><span class="tc-ic">🚚</span><div><b>Free tracked delivery</b><small>Paxi or Courier Guy, door to door</small></div></div>
+        <div class="trust-card"><span class="tc-ic">🚚</span><div><b>Free Paxi delivery</b><small>Collect at a PEP store — or R100 to your door</small></div></div>
         <div class="trust-card"><span class="tc-ic">💬</span><div><b>Pay after proof</b><small>Bench report + photos before you pay</small></div></div>
       </div>
     </div>` : "";
